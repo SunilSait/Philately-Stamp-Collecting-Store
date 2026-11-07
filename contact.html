@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us — PhilaVault</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <ul class="breadcrumb-list">
+        <li><a href="index.html">Home</a></li>
+        <li><span class="current">Contact</span></li>
+      </ul>
+      <h1>Get in Touch</h1>
+      <p>Have a question, need an appraisal, or want to visit our showroom? We'd love to hear from you.</p>
+    </div>
+  </section>
+
+  <!-- Contact Grid -->
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid fade-in">
+        <div>
+          <h3 style="margin-bottom:24px;">Contact Information</h3>
+          <div class="contact-info-card">
+            <div class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <h4>Our Address</h4>
+              <p>128 Heritage Lane<br>London, WC2H 9JQ<br>United Kingdom</p>
+            </div>
+          </div>
+          <div class="contact-info-card">
+            <div class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <h4>Phone</h4>
+              <p>+44 20 7123 4567<br>+44 20 7123 4568 (Appraisals)</p>
+            </div>
+          </div>
+          <div class="contact-info-card">
+            <div class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <h4>Email</h4>
+              <p>hello@philavault.com<br>appraisals@philavault.com</p>
+            </div>
+          </div>
+          <div class="contact-info-card">
+            <div class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <h4>Opening Hours</h4>
+              <p>Mon – Fri: 9:00 AM – 6:00 PM<br>Saturday: 10:00 AM – 4:00 PM<br>Sunday: Closed</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <h3>Send Us an Enquiry</h3>
+          <p style="color:var(--text-muted);font-size:0.92rem;margin-bottom:24px;">Fill out the form below and we'll get back to you within 24 hours.</p>
+          <form onsubmit="event.preventDefault();">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contactName">Full Name</label>
+                <input type="text" id="contactName" class="form-control" placeholder="Your full name">
+              </div>
+              <div class="form-group">
+                <label for="contactEmail">Email</label>
+                <input type="email" id="contactEmail" class="form-control" placeholder="your@email.com">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="contactPhone">Phone (optional)</label>
+              <input type="tel" id="contactPhone" class="form-control" placeholder="+44 20 7123 4567">
+            </div>
+            <div class="form-group">
+              <label for="contactSubject">Subject</label>
+              <select id="contactSubject" class="form-control">
+                <option value="">Select a subject</option>
+                <option value="general">General Enquiry</option>
+                <option value="appraisal">Appraisal Request</option>
+                <option value="sell">Sell My Collection</option>
+                <option value="purchase">Stamp Purchase</option>
+                <option value="membership">Membership Question</option>
+                <option value="shipping">Shipping & Delivery</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="contactMessage">Message</label>
+              <textarea id="contactMessage" class="form-control" rows="5" placeholder="Tell us how we can help you..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%;">Send Enquiry</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map Section -->
+  <section class="section section-alt" style="padding:0;">
+    <div style="position:relative;height:400px;background:var(--bg-tertiary);overflow:hidden;">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.0627!2d-0.1246!3d51.5128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTHCsDMwJzQ2LjEiTiAwwrAwNyczNy40Ilc!5e0!3m2!1sen!2suk!4v1" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
+
+  <!-- Visit Us -->
+  <section class="section">
+    <div class="container">
+      <div class="section-split fade-in">
+        <div class="split-content">
+          <span class="section-label">Visit Our Showroom</span>
+          <h2>Plan Your Visit</h2>
+          <p>Our London showroom is located in the heart of Covent Garden, easily accessible by public transport and with nearby parking facilities.</p>
+          <ul style="margin-top:16px;">
+            <li style="display:flex;align-items:center;gap:12px;padding:8px 0;color:var(--text-secondary);font-size:0.95rem;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              5 minutes from Leicester Square Tube Station
+            </li>
+            <li style="display:flex;align-items:center;gap:12px;padding:8px 0;color:var(--text-secondary);font-size:0.95rem;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              NCP parking available on Shelton Street
+            </li>
+            <li style="display:flex;align-items:center;gap:12px;padding:8px 0;color:var(--text-secondary);font-size:0.95rem;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Wheelchair accessible, lift to all floors
+            </li>
+            <li style="display:flex;align-items:center;gap:12px;padding:8px 0;color:var(--text-secondary);font-size:0.95rem;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Private viewing rooms available by appointment
+            </li>
+          </ul>
+        </div>
+        <div class="split-image">
+          <img src="assets/images/stamp-contact.jpg" alt="PhilaVault showroom" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header fade-in"><span class="section-label">Quick Answers</span><h2>Contact FAQ</h2></div>
+      <div class="faq-list fade-in">
+        <div class="faq-item active">
+          <button class="faq-question">Do I need an appointment to visit?<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <div class="faq-answer"><p>Walk-ins are welcome during opening hours for browsing. For appraisals, private viewings, and selling consultations, we recommend booking an appointment to ensure dedicated attention.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">How quickly do you respond to enquiries?<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <div class="faq-answer"><p>We aim to respond to all enquiries within 24 hours during business days. Urgent matters can be handled by phone during opening hours.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Can I ship stamps to you for appraisal?<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <div class="faq-answer"><p>Yes. We accept stamps via insured post from anywhere in the world. Contact us first and we'll provide detailed packing instructions and, for UK senders, a prepaid shipping label.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Do you offer virtual consultations?<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <div class="faq-answer"><p>Yes, we offer video consultations via Zoom for preliminary discussions, collection overviews, and membership enquiries. These can be booked via email or phone.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Departments -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header fade-in"><span class="section-label">Direct Lines</span><h2>Our Departments</h2></div>
+      <div class="grid-3 fade-in">
+        <div style="text-align:center;padding:32px;background:var(--card-bg);border:1px solid var(--border-color);border-radius:var(--border-radius-lg);">
+          <div style="width:56px;height:56px;border-radius:50%;background:rgba(var(--primary-rgb),0.08);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          </div>
+          <h4>Sales</h4>
+          <p style="font-size:0.88rem;color:var(--text-secondary);margin:8px 0 4px;">sales@philavault.com</p>
+          <p style="font-size:0.88rem;color:var(--text-secondary);">+44 20 7123 4567</p>
+        </div>
+        <div style="text-align:center;padding:32px;background:var(--card-bg);border:1px solid var(--border-color);border-radius:var(--border-radius-lg);">
+          <div style="width:56px;height:56px;border-radius:50%;background:rgba(var(--primary-rgb),0.08);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <h4>Appraisals</h4>
+          <p style="font-size:0.88rem;color:var(--text-secondary);margin:8px 0 4px;">appraisals@philavault.com</p>
+          <p style="font-size:0.88rem;color:var(--text-secondary);">+44 20 7123 4568</p>
+        </div>
+        <div style="text-align:center;padding:32px;background:var(--card-bg);border:1px solid var(--border-color);border-radius:var(--border-radius-lg);">
+          <div style="width:56px;height:56px;border-radius:50%;background:rgba(var(--primary-rgb),0.08);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <h4>Customer Support</h4>
+          <p style="font-size:0.88rem;color:var(--text-secondary);margin:8px 0 4px;">support@philavault.com</p>
+          <p style="font-size:0.88rem;color:var(--text-secondary);">+44 20 7123 4569</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section style="background:var(--primary-dark);padding:64px 0;">
+    <div class="container" style="text-align:center;">
+      <div class="fade-in">
+        <h3 style="color:#fff;margin-bottom:8px;">Stay Updated</h3>
+        <p style="color:rgba(255,255,255,0.7);margin-bottom:24px;font-size:0.95rem;">Subscribe for new arrivals, market insights, and exclusive member offers.</p>
+        <form style="display:flex;gap:12px;justify-content:center;max-width:440px;margin:0 auto;flex-wrap:wrap;" onsubmit="event.preventDefault();">
+          <input type="email" class="form-control" placeholder="Your email" style="flex:1;min-width:200px;background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:#fff;">
+          <button type="submit" class="btn btn-gold">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script src="components.js"></script>
+</body>
+</html>
