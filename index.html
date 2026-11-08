@@ -13,20 +13,107 @@
 </head>
 <body>
 
-  <!-- ==================== HERO ==================== -->
-  <section class="hero">
-    <div class="hero-bg">
-      <img src="assets/images/hero-stamps.jpg" alt="Rare stamp collection on antique desk">
+  <!-- ==================== HERO (Archival Specimen Sheet Gallery) ==================== -->
+  <section class="hero hero-archive-section" id="hero" aria-label="Philatelic Gallery Showcase">
+    
+    <!-- Theme-Inspired Philatelic Atmosphere & Canvas -->
+    <div class="hero-canvas-wrap" aria-hidden="true">
+      <div class="hero-ambient-orb-1"></div>
+      <div class="hero-ambient-orb-2"></div>
+      <canvas id="heroPhilatelyCanvas" class="hero-philately-canvas"></canvas>
     </div>
-    <div class="container">
-      <div class="hero-content fade-in">
-        <span class="section-label">Est. 1987 — London</span>
-        <h1>Discover the World Through Rare&nbsp;Stamps</h1>
-        <p>PhilaVault is the premier destination for discerning philatelists. Explore museum-grade collections, expert appraisals, and stamps that tell the stories of civilisations past.</p>
-        <div class="hero-actions">
-          <a href="products.html" class="btn btn-primary">Explore Collection</a>
-          <a href="appraisal.html" class="btn btn-secondary">Get Appraisal</a>
+
+    <div class="container" style="position:relative;z-index:2;width:100%;">
+      <div class="hero-split-grid">
+        
+        <!-- Left Column: Editorial Narrative & Action CTAs -->
+        <div class="hero-content fade-in">
+          <div class="hero-prestige-badge">
+            <i class="fa-solid fa-stamp"></i>
+            <span>Preserving Postal History &bull; Est. 1987 London</span>
+          </div>
+
+          <h1 class="hero-title">
+            Discover the World Through <span class="highlight">Rare Stamps</span>
+          </h1>
+
+          <p class="hero-description">
+            PhilaVault is the premier global destination for discerning philatelists. Explore certified museum-grade collections, professional auction appraisals, and archival specimens that illuminate world history.
+          </p>
+
+          <div class="hero-actions">
+            <a href="products.html" class="btn btn-primary btn-lg">
+              <i class="fa-solid fa-compass"></i>
+              <span>Explore Collection</span>
+            </a>
+            <a href="appraisal.html" class="btn btn-secondary btn-lg">
+              <i class="fa-solid fa-certificate"></i>
+              <span>Free Appraisal</span>
+            </a>
+          </div>
+
+          <!-- Collector Trust Row -->
+          <div class="hero-trust-bar">
+            <div class="hero-trust-item">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span>100% Provenance Guarantee</span>
+            </div>
+            <div class="hero-trust-item">
+              <i class="fa-solid fa-star"></i>
+              <span>4.9/5 from 2,800+ Active Collectors</span>
+            </div>
+          </div>
         </div>
+
+        <!-- Right Column: 3x2 Archival Specimen Sheet Mosaic -->
+        <div class="hero-visual fade-in">
+          <div class="hero-specimen-collage">
+            
+            <!-- Tile 1 -->
+            <div class="hero-specimen-tile">
+              <img src="assets/images/hero-stamps.jpg" alt="1840 Penny Black and Victorian rarities on antique desk" width="220" height="200">
+              <span class="hero-tile-tag">1840 Penny Black</span>
+            </div>
+
+            <!-- Tile 2 -->
+            <div class="hero-specimen-tile">
+              <img src="assets/images/stamp-tools.jpg" alt="Master philatelist precision tweezers and magnifying loupe" width="220" height="200">
+            </div>
+
+            <!-- Tile 3 -->
+            <div class="hero-specimen-tile">
+              <img src="assets/images/cat-european-classics.jpg" alt="Classical European imperial stamp issues" width="220" height="200">
+              <span class="hero-tile-tag">European Classics</span>
+            </div>
+
+            <!-- Tile 4 -->
+            <div class="hero-specimen-tile">
+              <img src="assets/images/cat-asian-dynasties.jpg" alt="Asian dynastic imperial dragons and rare postmarks" width="220" height="200">
+              <span class="hero-tile-tag">Imperial Dynasties</span>
+            </div>
+
+            <!-- Tile 5 -->
+            <div class="hero-specimen-tile">
+              <img src="assets/images/stamp-rare-1.jpg" alt="Rare Victorian stamp specimen with certified postmark" width="220" height="200">
+              <span class="hero-tile-tag">Victorian Royal Mail</span>
+            </div>
+
+            <!-- Tile 6 -->
+            <div class="hero-specimen-tile">
+              <img src="assets/images/stamp-album.jpg" alt="Leather bound philatelic album with rare specimens" width="220" height="200">
+              <span class="hero-tile-tag">Sovereign Vault Album</span>
+            </div>
+
+            <!-- Center Floating Wax Seal Medallion -->
+            <div class="hero-wax-seal" aria-hidden="true">
+              <i class="fa-solid fa-stamp"></i>
+              <span>AUTHENTIC</span>
+              <small>APS &bull; RPSL</small>
+            </div>
+
+          </div>
+        </div>
+
       </div>
     </div>
   </section>

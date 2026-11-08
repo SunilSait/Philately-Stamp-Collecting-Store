@@ -133,9 +133,58 @@
 
   <!-- ==================== HERO (Split Showcase) ==================== -->
   <section class="hero-home2" id="hero-section">
-    <!-- Ambient Glow Blobs -->
-    <div class="hero-ambient-1" aria-hidden="true"></div>
-    <div class="hero-ambient-2" aria-hidden="true"></div>
+    <!-- Thematic Philatelic Background Animation & Effects (Home 2 Only) -->
+    <div class="hero-home2-theme-bg" aria-hidden="true">
+      <!-- Ambient Vault Glowing Orbs with Pulsing Motion -->
+      <div class="hero-ambient-1"></div>
+      <div class="hero-ambient-2"></div>
+      <div class="hero-ambient-3"></div>
+
+      <!-- Philatelic Perforation Lattice Grid Overlay -->
+      <div class="home2-perforation-grid"></div>
+
+      <!-- Floating Archival Postal Postmark & Watermark Accents -->
+      <div class="home2-postmark-float home2-postmark-cds">
+        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="100" cy="100" r="92" stroke="currentColor" stroke-width="2" stroke-dasharray="5 3.5"/>
+          <circle cx="100" cy="100" r="82" stroke="currentColor" stroke-width="1.2"/>
+          <circle cx="100" cy="100" r="54" stroke="currentColor" stroke-width="1"/>
+          <path id="cds-text-1" d="M 28 100 A 72 72 0 0 1 172 100" fill="none"/>
+          <text font-size="10" font-family="'Cinzel', serif" font-weight="600" letter-spacing="3" fill="currentColor">
+            <textPath href="#cds-text-1" startOffset="50%" text-anchor="middle">ROYAL POSTAL ARCHIVE</textPath>
+          </text>
+          <path id="cds-text-2" d="M 172 100 A 72 72 0 0 1 28 100" fill="none"/>
+          <text font-size="9.5" font-family="'Cinzel', serif" font-weight="600" letter-spacing="3.5" fill="currentColor">
+            <textPath href="#cds-text-2" startOffset="50%" text-anchor="middle">★ LONDON 1840 ★</textPath>
+          </text>
+          <text x="100" y="96" font-size="15" font-family="'Playfair Display', serif" font-weight="700" text-anchor="middle" fill="currentColor">PAID</text>
+          <text x="100" y="113" font-size="8.5" font-family="'Cinzel', serif" letter-spacing="2" text-anchor="middle" fill="currentColor">VERIFIED</text>
+        </svg>
+      </div>
+
+      <div class="home2-postmark-float home2-postmark-waves">
+        <svg viewBox="0 0 280 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,22 Q35,0 70,22 T140,22 T210,22 T280,22" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+          <path d="M0,52 Q35,30 70,52 T140,52 T210,52 T280,52" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+          <path d="M0,82 Q35,60 70,82 T140,82 T210,82 T280,82" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <div class="home2-postmark-float home2-postmark-maltese">
+        <svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="80" cy="80" r="74" stroke="currentColor" stroke-width="1.6" stroke-dasharray="3 4"/>
+          <path d="M80 18 L94 66 L142 80 L94 94 L80 142 L66 94 L18 80 L66 66 Z" stroke="currentColor" stroke-width="1.8" fill="none"/>
+          <circle cx="80" cy="80" r="16" stroke="currentColor" stroke-width="1.4"/>
+          <circle cx="80" cy="80" r="6" fill="currentColor"/>
+        </svg>
+      </div>
+
+      <!-- Thematic Canvas: Gold Specimen Dust, Micro Loupe Glints, and Floating Watermark Motifs -->
+      <canvas id="home2-philately-canvas" class="hero-home2-canvas"></canvas>
+
+      <!-- Interactive Loupe / Optical Spotlight Glow -->
+      <div class="hero-home2-spotlight" id="heroHome2Spotlight"></div>
+    </div>
 
     <div class="container" style="position:relative;z-index:2;width:100%;">
       <!-- Slides Track -->

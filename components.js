@@ -456,64 +456,454 @@ function initProductFilters() {
   });
 }
 
-// ---- Hero Slider (Home 2) ----
-function initHeroSlider() {
-  const track = document.getElementById('hero-slides-track');
-  if (!track) return;
+// ---- Thematic Philatelic Ambient Particles ----
+function initPhilatelicParticles() {
+  const canvas = document.getElementById('heroPhilatelyCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
 
-  const slides = track.querySelectorAll('.hero-split-slide');
-  const dots = document.querySelectorAll('.hero-home2-dot');
-  if (!slides.length) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  let current = 0;
-  let timer = null;
-  const interval = 5500;
+  let width = 0, height = 0;
+  let particles = [];
+  let animId = null;
 
-  function goToSlide(index) {
-    if (index < 0) index = slides.length - 1;
-    if (index >= slides.length) index = 0;
-    current = index;
-
-    slides.forEach((s, idx) => {
-      s.classList.toggle('active', idx === current);
-    });
-
-    dots.forEach((d, idx) => {
-      d.classList.toggle('active', idx === current);
-    });
+  function resize() {
+    const parent = canvas.parentElement || canvas.closest('.hero-slider-section');
+    if (!parent) return;
+    width = canvas.width = parent.offsetWidth;
+    height = canvas.height = parent.offsetHeight;
   }
 
-  function next() {
-    goToSlide(current + 1);
+  function isDark() {
+    return document.documentElement.getAttribute('data-theme') === 'dark';
   }
 
-  function startTimer() {
-    stopTimer();
-    timer = setInterval(next, interval);
-  }
-
-  function stopTimer() {
-    if (timer) {
-      clearInterval(timer);
-      timer = null;
+  class Particle {
+    constructor() {
+      this.reset();
+    }
+    reset() {
+      this.x = Math.random() * (width || 800);
+      this.y = Math.random() * (height || 500);
+      this.size = Math.random() * 2.2 + 0.8;
+      this.speedY = -(Math.random() * 0.4 + 0.15);
+      this.speedX = (Math.random() - 0.5) * 0.25;
+      this.opacity = Math.random() * 0.45 + 0.2;
+      this.pulseSpeed = Math.random() * 0.02 + 0.01;
+      this.pulse = Math.random() * Math.PI;
+    }
+    update() {
+      this.y += this.speedY;
+      this.x += this.speedX;
+      this.pulse += this.pulseSpeed;
+      if (this.y < -10 || this.x < -10 || this.x > width + 10) {
+        this.reset();
+        this.y = height + 5;
+      }
+    }
+    draw() {
+      const currentOpacity = this.opacity * (0.6 + 0.4 * Math.sin(this.pulse));
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fillStyle = isDark()
+        ? `rgba(226, 188, 90, ${currentOpacity})`
+        : `rgba(184, 134, 11, ${currentOpacity * 0.85})`;
+      ctx.fill();
     }
   }
 
-  dots.forEach((dot, idx) => {
-    dot.addEventListener('click', function(e) {
-      e.preventDefault();
-      goToSlide(idx);
-      startTimer();
-    });
-  });
+  resize();
+  window.addEventListener('resize', resize);
 
-  const heroSection = document.getElementById('hero-section');
-  if (heroSection) {
-    heroSection.addEventListener('mouseenter', stopTimer);
-    heroSection.addEventListener('mouseleave', startTimer);
+  const count = Math.min(32, Math.floor((width || 800) / 35));
+  for (let i = 0; i < count; i++) {
+    particles.push(new Particle());
   }
 
-  startTimer();
+  function animate() {
+    ctx.clearRect(0, 0, width, height);
+    particles.forEach(p => {
+      p.update();
+      p.draw();
+    });
+    animId = requestAnimationFrame(animate);
+  }
+
+  animate();
+}
+
+// ---- Home 2 Thematic Philatelic Background Animation & Effects (Home 2 Only) ----
+function initHome2PhilatelyAnimation() {
+  const canvas = document.getElementById('home2-philately-canvas');
+  const heroSection = document.getElementById('hero-section');
+  if (!canvas || !heroSection || !heroSection.classList.contains('hero-home2')) return;
+
+  const spotlight = document.getElementById('heroHome2Spotlight');
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    canvas.style.display = 'none';
+    if (spotlight) spotlight.style.display = 'none';
+    return;
+  }
+
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
+
+  let width = 0;
+  let height = 0;
+  let dpr = 1;
+  let particles = [];
+  let animId = null;
+  let isVisible = true;
+
+  // Mouse interaction state for spotlight & particle deflection
+  let targetMouseX = -1000;
+  let targetMouseY = -1000;
+  let mouseX = -1000;
+  let mouseY = -1000;
+  let isMouseActive = false;
+
+  function isDark() {
+    return document.documentElement.getAttribute('data-theme') === 'dark';
+  }
+
+  function resize() {
+    const rect = heroSection.getBoundingClientRect();
+    width = Math.max(rect.width, 320);
+    height = Math.max(rect.height, 400);
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+    canvas.width = Math.floor(width * dpr);
+    canvas.height = Math.floor(height * dpr);
+    canvas.style.width = width + 'px';
+    canvas.style.height = height + 'px';
+
+    createParticles();
+  }
+
+  function createParticles() {
+    particles = [];
+    const count = width < 768 ? 28 : 55;
+
+    for (let i = 0; i < count; i++) {
+      const rand = Math.random();
+      let type = 'dust';
+      let size = 1.0 + Math.random() * 1.8;
+
+      if (rand < 0.55) {
+        type = 'dust';
+        size = 1.0 + Math.random() * 1.8;
+      } else if (rand < 0.82) {
+        type = 'spark';
+        size = 3.0 + Math.random() * 3.5;
+      } else {
+        type = 'stamp-glyph';
+        size = 7.0 + Math.random() * 5.0;
+      }
+
+      const baseVy = -(0.18 + Math.random() * 0.35);
+
+      particles.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: 0,
+        vy: baseVy,
+        baseVy: baseVy,
+        size: size,
+        type: type,
+        alpha: 0.2 + Math.random() * 0.55,
+        baseAlpha: 0.2 + Math.random() * 0.55,
+        pulseSpeed: 0.015 + Math.random() * 0.03,
+        pulsePhase: Math.random() * Math.PI * 2,
+        wobbleSpeed: 0.012 + Math.random() * 0.02,
+        wobbleAmp: 0.3 + Math.random() * 0.6,
+        wobblePhase: Math.random() * Math.PI * 2,
+        rotation: Math.random() * Math.PI * 2,
+        rotSpeed: (Math.random() - 0.5) * 0.015
+      });
+    }
+  }
+
+  // Draw 4-point loupe glint / sparkle
+  function drawSparkle(context, x, y, r, rot, alpha, dark) {
+    context.save();
+    context.translate(x, y);
+    context.rotate(rot);
+    context.fillStyle = dark
+      ? `rgba(238, 205, 120, ${alpha})`
+      : `rgba(184, 134, 11, ${alpha * 0.9})`;
+    context.beginPath();
+    for (let i = 0; i < 4; i++) {
+      const angle = (i * Math.PI) / 2;
+      context.lineTo(Math.cos(angle) * r, Math.sin(angle) * r);
+      const halfAngle = angle + Math.PI / 4;
+      context.lineTo(Math.cos(halfAngle) * (r * 0.22), Math.sin(halfAngle) * (r * 0.22));
+    }
+    context.closePath();
+    context.fill();
+    context.restore();
+  }
+
+  // Draw mini perforated stamp watermark glyph
+  function drawStampGlyph(context, x, y, size, rot, alpha, dark) {
+    context.save();
+    context.translate(x, y);
+    context.rotate(rot);
+    const strokeStyle = dark
+      ? `rgba(226, 188, 90, ${alpha * 0.6})`
+      : `rgba(168, 118, 22, ${alpha * 0.5})`;
+    context.strokeStyle = strokeStyle;
+    context.lineWidth = 1;
+    context.setLineDash([2, 2]);
+    const w = size * 1.1;
+    const h = size * 1.35;
+    context.strokeRect(-w / 2, -h / 2, w, h);
+    context.setLineDash([]);
+    // Inner tiny Maltese pip
+    context.fillStyle = strokeStyle;
+    context.beginPath();
+    context.arc(0, 0, 1.2, 0, Math.PI * 2);
+    context.fill();
+    context.restore();
+  }
+
+  // Mouse tracking
+  heroSection.addEventListener('mousemove', (e) => {
+    const rect = heroSection.getBoundingClientRect();
+    targetMouseX = e.clientX - rect.left;
+    targetMouseY = e.clientY - rect.top;
+    isMouseActive = true;
+  });
+
+  heroSection.addEventListener('mouseleave', () => {
+    isMouseActive = false;
+  });
+
+  function render() {
+    if (!isVisible) return;
+
+    ctx.save();
+    ctx.scale(dpr, dpr);
+    ctx.clearRect(0, 0, width, height);
+
+    const dark = isDark();
+
+    // Smooth mouse spotlight motion
+    if (spotlight) {
+      if (isMouseActive) {
+        mouseX += (targetMouseX - mouseX) * 0.1;
+        mouseY += (targetMouseY - mouseY) * 0.1;
+        spotlight.style.left = mouseX + 'px';
+        spotlight.style.top = mouseY + 'px';
+        spotlight.style.opacity = '1';
+      } else {
+        spotlight.style.opacity = '0';
+      }
+    }
+
+    particles.forEach(p => {
+      p.wobblePhase += p.wobbleSpeed;
+      p.pulsePhase += p.pulseSpeed;
+      p.rotation += p.rotSpeed;
+
+      const currentAlpha = Math.max(0.05, Math.min(0.9, p.baseAlpha * (0.65 + 0.35 * Math.sin(p.pulsePhase))));
+      p.x += Math.sin(p.wobblePhase) * p.wobbleAmp;
+      p.y += p.vy;
+
+      // Mouse gentle deflection
+      if (isMouseActive) {
+        const dx = p.x - mouseX;
+        const dy = p.y - mouseY;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        const maxDist = 120;
+        if (dist < maxDist && dist > 0) {
+          const force = (1 - dist / maxDist) * 1.2;
+          p.x += (dx / dist) * force;
+          p.y += (dy / dist) * force;
+        }
+      }
+
+      // Recycle when offscreen
+      if (p.y < -20) {
+        p.y = height + 15;
+        p.x = Math.random() * width;
+      }
+      if (p.x < -20) p.x = width + 10;
+      if (p.x > width + 20) p.x = -10;
+
+      // Render based on particle type
+      if (p.type === 'dust') {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = dark
+          ? `rgba(226, 188, 90, ${currentAlpha})`
+          : `rgba(184, 134, 11, ${currentAlpha * 0.8})`;
+        ctx.fill();
+      } else if (p.type === 'spark') {
+        drawSparkle(ctx, p.x, p.y, p.size, p.rotation, currentAlpha, dark);
+      } else if (p.type === 'stamp-glyph') {
+        drawStampGlyph(ctx, p.x, p.y, p.size, p.rotation, currentAlpha, dark);
+      }
+    });
+
+    ctx.restore();
+    animId = requestAnimationFrame(render);
+  }
+
+  // IntersectionObserver to pause when off-screen
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        isVisible = entry.isIntersecting;
+        if (isVisible && !animId) {
+          animId = requestAnimationFrame(render);
+        } else if (!isVisible && animId) {
+          cancelAnimationFrame(animId);
+          animId = null;
+        }
+      });
+    }, { threshold: 0.1 });
+    observer.observe(heroSection);
+  }
+
+  resize();
+  window.addEventListener('resize', resize, { passive: true });
+  animId = requestAnimationFrame(render);
+}
+
+// ---- Hero Slider (Home 1 & Home 2) ----
+function initHeroSlider() {
+  // 1. Home 1 Slider (Split 3-Slide with Dual-Image Gallery)
+  const home1Section = document.getElementById('heroSliderSection') || document.querySelector('.hero-slider-section');
+  if (home1Section) {
+    const slides = home1Section.querySelectorAll('.hero-slide');
+    const dots = home1Section.querySelectorAll('.hero-dot');
+    const prevBtn = document.getElementById('heroPrevBtn');
+    const nextBtn = document.getElementById('heroNextBtn');
+
+    if (slides.length > 0) {
+      let current = 0;
+      let timer = null;
+      const interval = 5000;
+
+      function goToSlide(index) {
+        if (index < 0) index = slides.length - 1;
+        if (index >= slides.length) index = 0;
+        current = index;
+
+        slides.forEach((s, idx) => s.classList.toggle('active', idx === current));
+        dots.forEach((d, idx) => d.classList.toggle('active', idx === current));
+      }
+
+      function next() {
+        goToSlide(current + 1);
+      }
+
+      function prev() {
+        goToSlide(current - 1);
+      }
+
+      function startTimer() {
+        stopTimer();
+        timer = setInterval(next, interval);
+      }
+
+      function stopTimer() {
+        if (timer) {
+          clearInterval(timer);
+          timer = null;
+        }
+      }
+
+      dots.forEach((dot, idx) => {
+        dot.addEventListener('click', function(e) {
+          e.preventDefault();
+          goToSlide(idx);
+          startTimer();
+        });
+      });
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          prev();
+          startTimer();
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          next();
+          startTimer();
+        });
+      }
+
+      home1Section.addEventListener('mouseenter', stopTimer);
+      home1Section.addEventListener('mouseleave', startTimer);
+
+      startTimer();
+    }
+  }
+
+  // 2. Home 2 Split Showcase Slider
+  const track = document.getElementById('hero-slides-track');
+  if (track) {
+    const slides = track.querySelectorAll('.hero-split-slide');
+    const dots = document.querySelectorAll('.hero-home2-dot');
+    if (slides.length) {
+      let current = 0;
+      let timer = null;
+      const interval = 5500;
+
+      function goToSlide(index) {
+        if (index < 0) index = slides.length - 1;
+        if (index >= slides.length) index = 0;
+        current = index;
+
+        slides.forEach((s, idx) => {
+          s.classList.toggle('active', idx === current);
+        });
+
+        dots.forEach((d, idx) => {
+          d.classList.toggle('active', idx === current);
+        });
+      }
+
+      function next() {
+        goToSlide(current + 1);
+      }
+
+      function startTimer() {
+        stopTimer();
+        timer = setInterval(next, interval);
+      }
+
+      function stopTimer() {
+        if (timer) {
+          clearInterval(timer);
+          timer = null;
+        }
+      }
+
+      dots.forEach((dot, idx) => {
+        dot.addEventListener('click', function(e) {
+          e.preventDefault();
+          goToSlide(idx);
+          startTimer();
+        });
+      });
+
+      const heroSection = document.getElementById('hero-section');
+      if (heroSection) {
+        heroSection.addEventListener('mouseenter', stopTimer);
+        heroSection.addEventListener('mouseleave', startTimer);
+      }
+
+      startTimer();
+    }
+  }
 }
 
 // ---- Initialization ----
@@ -540,4 +930,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initCountdown();
   initProductFilters();
   initHeroSlider();
+  initPhilatelicParticles();
+  initHome2PhilatelyAnimation();
 });
