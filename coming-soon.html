@@ -1,89 +1,95 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" id="root-html">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="This page is coming soon. Subscribe for updates on rare stamp arrivals, specialized auctions, and new collector tools from PhilaVault.">
   <title>Coming Soon — PhilaVault</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="coming-soon-body">
+<body class="fullscreen-page">
 
-  <div class="coming-soon-page">
-    <!-- Corner Actions -->
-    <div class="corner-actions">
-      <button class="icon-btn theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  <!-- Top Bar -->
+  <div class="fullscreen-topbar">
+    <a href="index.html" class="logo" aria-label="PhilaVault Home">
+      <div class="logo-icon"><i class="fa-solid fa-stamp"></i></div>
+      <span>PhilaVault</span>
+    </a>
+    <div style="display:flex;gap:0.5rem;">
+      <button onclick="toggleRTL()" class="auth-toggle-btn" title="Toggle Direction">
+        <span class="dir-label" style="font-size:0.6875rem;font-weight:600;">LTR</span>
       </button>
-      <button class="icon-btn" onclick="toggleRTL()" aria-label="Toggle RTL">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      <button onclick="toggleTheme()" class="auth-toggle-btn theme-toggle" title="Toggle Theme" aria-label="Toggle dark mode">
+        <span class="theme-icon-wrap"><i class="fa-solid fa-moon"></i></span>
       </button>
-    </div>
-
-    <div class="coming-soon-content">
-      <!-- Logo -->
-      <a href="index.html" style="display:inline-flex;align-items:center;gap:10px;font-family:var(--font-heading);font-size:1.3rem;font-weight:700;color:var(--primary);margin-bottom:48px;text-decoration:none;">
-        <div class="logo-icon" style="width:36px;height:36px;">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="3" width="18" height="18" rx="1"/>
-            <path d="M7 7h.01M17 7h.01M7 17h.01M17 17h.01"/>
-            <rect x="7" y="7" width="10" height="10" rx="0.5"/>
-            <circle cx="12" cy="12" r="2.5"/>
-          </svg>
-        </div>
-        <span>PhilaVault</span>
-      </a>
-
-      <span class="section-label">Coming Soon</span>
-      <h1>Something Extraordinary is Being Curated</h1>
-      <p>We're preparing a new collection that will redefine philatelic excellence. Be the first to know when we launch.</p>
-
-      <!-- Countdown -->
-      <div class="countdown" id="countdown">
-        <div class="countdown-item">
-          <div class="number" id="cd-days">00</div>
-          <div class="label">Days</div>
-        </div>
-        <div class="countdown-item">
-          <div class="number" id="cd-hours">00</div>
-          <div class="label">Hours</div>
-        </div>
-        <div class="countdown-item">
-          <div class="number" id="cd-mins">00</div>
-          <div class="label">Minutes</div>
-        </div>
-        <div class="countdown-item">
-          <div class="number" id="cd-secs">00</div>
-          <div class="label">Seconds</div>
-        </div>
-      </div>
-
-      <!-- Notify Form -->
-      <form class="notify-form" onsubmit="event.preventDefault();">
-        <input type="email" class="form-control" placeholder="Enter your email address">
-        <button type="submit" class="btn btn-primary">Notify Me</button>
-      </form>
-
-      <!-- Social Links -->
-      <div style="display:flex;justify-content:center;gap:16px;margin-top:40px;">
-        <a href="#" class="icon-btn" aria-label="Facebook">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-        </a>
-        <a href="#" class="icon-btn" aria-label="Twitter">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        </a>
-        <a href="#" class="icon-btn" aria-label="Instagram">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-        </a>
-        <a href="#" class="icon-btn" aria-label="YouTube">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-        </a>
-      </div>
     </div>
   </div>
+
+  <!-- Content -->
+  <main class="fullscreen-content">
+    <div style="position:relative;max-width:540px;width:100%;margin:0 auto;">
+      <!-- Decorative glow -->
+      <div style="position:absolute;top:30%;left:50%;transform:translate(-50%,-50%);width:min(450px, 90vw);height:min(450px, 90vw);background:radial-gradient(circle,rgba(184,134,11,0.1),transparent 65%);border-radius:50%;pointer-events:none;"></div>
+
+      <div style="position:relative;z-index:2;">
+        <div class="section-label" style="justify-content:center;margin-bottom:1rem;display:inline-flex;align-items:center;gap:6px;">
+          <i class="fa-regular fa-clock" style="font-size:14px;"></i>
+          Under Construction
+        </div>
+        <h1 style="font-size:clamp(1.85rem, 4.5vw, 2.6rem);margin-bottom:0.75rem;line-height:1.25;">Something Extraordinary is Being Curated</h1>
+        <p style="color:var(--text-secondary);font-size:1rem;max-width:440px;margin:0 auto;line-height:1.7;">
+          We're preparing a new collection that will redefine philatelic excellence. Be the first to know when we launch.
+        </p>
+
+        <!-- Countdown -->
+        <div class="countdown-grid" id="countdown">
+          <div class="countdown-card">
+            <div class="countdown-val" id="cd-days">30</div>
+            <div class="countdown-lbl">Days</div>
+          </div>
+          <div class="countdown-card">
+            <div class="countdown-val" id="cd-hours">00</div>
+            <div class="countdown-lbl">Hours</div>
+          </div>
+          <div class="countdown-card">
+            <div class="countdown-val" id="cd-mins">00</div>
+            <div class="countdown-lbl">Minutes</div>
+          </div>
+          <div class="countdown-card">
+            <div class="countdown-val" id="cd-secs">00</div>
+            <div class="countdown-lbl">Seconds</div>
+          </div>
+        </div>
+
+        <!-- Subscribe Form -->
+        <form class="subscribe-form" onsubmit="event.preventDefault(); alert('Subscribed! We will notify you when this page launches.'); this.reset();">
+          <input type="email" class="form-control" placeholder="your@email.com" required>
+          <button type="submit" class="btn btn-primary" style="white-space:nowrap;">Notify Me</button>
+        </form>
+
+        <!-- Social Links -->
+        <div class="coming-socials">
+          <a href="#" class="coming-social-link" aria-label="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="#" class="coming-social-link" aria-label="Twitter">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+          <a href="#" class="coming-social-link" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="#" class="coming-social-link" aria-label="YouTube">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
 
   <script src="components.js"></script>
 </body>

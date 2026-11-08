@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
     /* Home 2 Specific Styles */
@@ -130,20 +131,163 @@
 </head>
 <body>
 
-  <!-- ==================== HERO (Split Style) ==================== -->
-  <section class="hero" style="min-height:90vh;">
-    <div class="hero-bg">
-      <img src="assets/images/hero-home2.jpg" alt="Premium stamp display on velvet">
-    </div>
-    <div class="container" style="display:flex;align-items:center;width:100%;">
-      <div class="hero-content fade-in" style="max-width:620px;">
-        <span class="section-label">The Premium Experience</span>
-        <h1 style="font-size:3.6rem;">Where Rarity Meets Legacy</h1>
-        <p>Access the world's most sought-after philatelic specimens. Private viewings, white-glove appraisals, and investment-grade stamps curated for the distinguished collector.</p>
-        <div class="hero-actions">
-          <a href="products.html" class="btn btn-primary">View Premium Collection</a>
-          <a href="contact.html" class="btn btn-secondary">Book Private Viewing</a>
+  <!-- ==================== HERO (Split Showcase) ==================== -->
+  <section class="hero-home2" id="hero-section">
+    <!-- Ambient Glow Blobs -->
+    <div class="hero-ambient-1" aria-hidden="true"></div>
+    <div class="hero-ambient-2" aria-hidden="true"></div>
+
+    <div class="container" style="position:relative;z-index:2;width:100%;">
+      <!-- Slides Track -->
+      <div id="hero-slides-track">
+
+        <!-- Slide 1: Private Vault Rarities -->
+        <div class="hero-split-slide active">
+          <div class="hero-home2-grid">
+            <!-- Left Column -->
+            <div class="fade-in">
+              <div class="hero-home2-badge">
+                <i class="fa-solid fa-crown"></i> The Private Vault Collection
+              </div>
+              <h1 class="hero-home2-title">
+                Where Rarity Meets <span class="highlight">Philatelic Legacy</span>
+              </h1>
+              <p class="hero-home2-desc">
+                Access the world's most sought-after philatelic specimens. Private viewings, white-glove appraisals, and investment-grade stamps curated for the distinguished collector.
+              </p>
+              <div class="hero-home2-actions">
+                <a href="products.html" class="btn btn-primary btn-lg">
+                  <i class="fa-solid fa-gem" style="margin-right:8px;"></i> View Vault Collection
+                </a>
+                <a href="contact.html" class="btn btn-secondary btn-lg">
+                  <i class="fa-solid fa-calendar-check" style="margin-right:8px;"></i> Book Private Viewing
+                </a>
+              </div>
+              <div class="hero-home2-features">
+                <div class="hero-home2-feature-item">
+                  <i class="fa-solid fa-shield-halved"></i>
+                  <span>100% Lifetime Provenance Guarantee</span>
+                </div>
+                <div class="hero-home2-feature-item">
+                  <i class="fa-solid fa-vault"></i>
+                  <span>Climate-Controlled Vault Custody</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column -->
+            <div style="position:relative;" class="fade-in">
+              <div class="hero-home2-image-wrap">
+                <img src="assets/images/hero-home2.jpg" alt="1840 Penny Black and Imperial stamps on velvet" />
+                <div class="hero-home2-image-overlay"></div>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <!-- Slide 2: Imperial & Continental Archive -->
+        <div class="hero-split-slide">
+          <div class="hero-home2-grid">
+            <!-- Left Column -->
+            <div>
+              <div class="hero-home2-badge">
+                <i class="fa-solid fa-globe"></i> Global Heritage Archive
+              </div>
+              <h1 class="hero-home2-title">
+                Imperial & Continental <span class="highlight">Masterpieces</span>
+              </h1>
+              <p class="hero-home2-desc">
+                From Victorian Royal Mail issues to rare Asian dynastic cancellations, explore museum-grade sets meticulously preserved with documented pedigree.
+              </p>
+              <div class="hero-home2-actions">
+                <a href="products.html" class="btn btn-primary btn-lg">
+                  <i class="fa-solid fa-compass" style="margin-right:8px;"></i> Explore Imperial Series
+                </a>
+                <a href="sell.html" class="btn btn-secondary btn-lg">
+                  <i class="fa-solid fa-scale-balanced" style="margin-right:8px;"></i> Consign Your Archive
+                </a>
+              </div>
+              <div class="hero-home2-features">
+                <div class="hero-home2-feature-item">
+                  <i class="fa-solid fa-book-bookmark"></i>
+                  <span>Documented Archival Pedigree</span>
+                </div>
+                <div class="hero-home2-feature-item">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <span>Spectroscopic Paper & Ink Analysis</span>
+                </div>
+                <div class="hero-home2-feature-item">
+                  <i class="fa-solid fa-truck-fast"></i>
+                  <span>Fully Insured Global Courier</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column -->
+            <div style="position:relative;">
+              <div class="hero-home2-image-wrap">
+                <img src="assets/images/hero2-imperial-archive.jpg" alt="Victorian Royal Mail and European imperial stamps" />
+                <div class="hero-home2-image-overlay"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3: White-Glove Advisory & Valuation -->
+        <div class="hero-split-slide">
+          <div class="hero-home2-grid">
+            <!-- Left Column -->
+            <div>
+              <div class="hero-home2-badge">
+                <i class="fa-solid fa-feather-pointed"></i> White-Glove Advisory
+              </div>
+              <h1 class="hero-home2-title">
+                Certified Valuation & <span class="highlight">Private Acquisitions</span>
+              </h1>
+              <p class="hero-home2-desc">
+                Confidential portfolio advisory and institutional estate appraisals conducted by accredited philatelic judges and former auction-house specialists.
+              </p>
+              <div class="hero-home2-actions">
+                <a href="appraisal.html" class="btn btn-primary btn-lg">
+                  <i class="fa-solid fa-certificate" style="margin-right:8px;"></i> Request Private Valuation
+                </a>
+                <a href="pricing.html" class="btn btn-secondary btn-lg">
+                  <i class="fa-solid fa-crown" style="margin-right:8px;"></i> Collector Memberships
+                </a>
+              </div>
+              <div class="hero-home2-features">
+                <div class="hero-home2-feature-item">
+                  <i class="fa-solid fa-gavel"></i>
+                  <span>Private Treaty & Auction Guidance</span>
+                </div>
+                <div class="hero-home2-feature-item">
+                  <i class="fa-solid fa-chart-line"></i>
+                  <span>Market Index & Rarity Benchmarks</span>
+                </div>
+                <div class="hero-home2-feature-item">
+                  <i class="fa-solid fa-user-shield"></i>
+                  <span>Complete Client Confidentiality</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column -->
+            <div style="position:relative;">
+              <div class="hero-home2-image-wrap">
+                <img src="assets/images/hero2-valuation-consult.jpg" alt="Master philatelist examining rare specimens with loupe" />
+                <div class="hero-home2-image-overlay"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Hero Dots Indicators -->
+      <div class="hero-home2-nav">
+        <button class="hero-home2-dot active" aria-label="Slide 1"></button>
+        <button class="hero-home2-dot" aria-label="Slide 2"></button>
+        <button class="hero-home2-dot" aria-label="Slide 3"></button>
       </div>
     </div>
   </section>
@@ -335,28 +479,28 @@
       </div>
       <div class="grid-4 fade-in">
         <div style="position:relative;border-radius:var(--border-radius-lg);overflow:hidden;height:300px;cursor:pointer;group">
-          <img src="assets/images/stamp-feature-1.jpg" alt="Flora & Fauna stamps" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;" loading="lazy">
+          <img src="assets/images/theme-flora-fauna.jpg" alt="Flora & Fauna stamps" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;" loading="lazy">
           <div style="position:absolute;bottom:0;left:0;right:0;padding:24px;background:linear-gradient(transparent,rgba(0,0,0,0.85));">
             <h4 style="color:#fff;margin-bottom:4px;">Flora & Fauna</h4>
             <p style="color:rgba(255,255,255,0.7);font-size:0.85rem;">248 stamps</p>
           </div>
         </div>
         <div style="position:relative;border-radius:var(--border-radius-lg);overflow:hidden;height:300px;cursor:pointer;">
-          <img src="assets/images/stamp-feature-2.jpg" alt="Space & Aviation stamps" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;" loading="lazy">
+          <img src="assets/images/theme-space-aviation.jpg" alt="Space & Aviation stamps" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;" loading="lazy">
           <div style="position:absolute;bottom:0;left:0;right:0;padding:24px;background:linear-gradient(transparent,rgba(0,0,0,0.85));">
             <h4 style="color:#fff;margin-bottom:4px;">Space & Aviation</h4>
             <p style="color:rgba(255,255,255,0.7);font-size:0.85rem;">183 stamps</p>
           </div>
         </div>
         <div style="position:relative;border-radius:var(--border-radius-lg);overflow:hidden;height:300px;cursor:pointer;">
-          <img src="assets/images/stamp-collection-1.jpg" alt="Historic Figures stamps" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;" loading="lazy">
+          <img src="assets/images/theme-historic-figures.jpg" alt="Historic Figures stamps" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;" loading="lazy">
           <div style="position:absolute;bottom:0;left:0;right:0;padding:24px;background:linear-gradient(transparent,rgba(0,0,0,0.85));">
             <h4 style="color:#fff;margin-bottom:4px;">Historic Figures</h4>
             <p style="color:rgba(255,255,255,0.7);font-size:0.85rem;">312 stamps</p>
           </div>
         </div>
         <div style="position:relative;border-radius:var(--border-radius-lg);overflow:hidden;height:300px;cursor:pointer;">
-          <img src="assets/images/stamp-collection-2.jpg" alt="Art & Architecture stamps" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;" loading="lazy">
+          <img src="assets/images/theme-art-architecture.jpg" alt="Art & Architecture stamps" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;" loading="lazy">
           <div style="position:absolute;bottom:0;left:0;right:0;padding:24px;background:linear-gradient(transparent,rgba(0,0,0,0.85));">
             <h4 style="color:#fff;margin-bottom:4px;">Art & Architecture</h4>
             <p style="color:rgba(255,255,255,0.7);font-size:0.85rem;">195 stamps</p>
@@ -376,17 +520,17 @@
       <div class="fade-in" style="max-width:720px;margin:0 auto 48px;text-align:center;background:var(--card-bg);border:1px solid var(--border-color);border-radius:var(--border-radius-lg);padding:48px 40px;">
         <div style="font-family:var(--font-heading);font-size:4rem;color:var(--secondary);line-height:1;margin-bottom:16px;">"</div>
         <p style="font-size:1.15rem;font-style:italic;color:var(--text-secondary);line-height:1.8;margin-bottom:24px;">PhilaVault transformed my understanding of stamp collecting as an investment. Their private viewing of the British Guiana collection was a once-in-a-lifetime experience. The expertise and discretion of their team is truly unmatched in the industry.</p>
-        <p style="font-weight:600;color:var(--text-primary);font-size:1.05rem;">Lord William Ashford</p>
+        <p style="font-weight:500;color:var(--text-primary);font-size:1.05rem;">Lord William Ashford</p>
         <p style="font-size:0.85rem;color:var(--text-muted);">Private Collector & Patron Member, London</p>
       </div>
       <div class="grid-3 fade-in">
         <div class="testimonial-card">
           <div class="stars">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="var(--secondary)" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="var(--secondary)" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="var(--secondary)" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="var(--secondary)" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="var(--secondary)" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
           </div>
           <p class="quote">"The estate valuation service was invaluable. Professional, thorough, and compassionate during a difficult time."</p>
           <p class="author">Catherine Reynolds</p>
@@ -394,11 +538,11 @@
         </div>
         <div class="testimonial-card">
           <div class="stars">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="var(--secondary)" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="var(--secondary)" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="var(--secondary)" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="var(--secondary)" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="var(--secondary)" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
           </div>
           <p class="quote">"As an investor, PhilaVault's market analysis and acquisition advisory has been exceptional. My collection has appreciated 40% in three years."</p>
           <p class="author">Takashi Nakamura</p>
@@ -406,11 +550,11 @@
         </div>
         <div class="testimonial-card">
           <div class="stars">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="var(--secondary)" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="var(--secondary)" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="var(--secondary)" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="var(--secondary)" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="var(--secondary)" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
           </div>
           <p class="quote">"The Connoisseur membership is worth every penny. Priority access to new arrivals means I never miss the pieces I'm after."</p>
           <p class="author">François Dupont</p>
@@ -435,10 +579,10 @@
           <div class="plan-price">$29 <span>/month</span></div>
           <div class="plan-billing">Billed annually</div>
           <ul class="plan-features">
-            <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> 10 appraisals per year</li>
-            <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Basic catalogue access</li>
-            <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Weekly newsletter</li>
-            <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> 5% store discount</li>
+            <li><i class="fa-solid fa-check" style="color:var(--primary);margin-right:8px;"></i> 10 appraisals per year</li>
+            <li><i class="fa-solid fa-check" style="color:var(--primary);margin-right:8px;"></i> Basic catalogue access</li>
+            <li><i class="fa-solid fa-check" style="color:var(--primary);margin-right:8px;"></i> Weekly newsletter</li>
+            <li><i class="fa-solid fa-check" style="color:var(--primary);margin-right:8px;"></i> 5% store discount</li>
           </ul>
           <a href="pricing.html" class="btn btn-secondary">Choose Plan</a>
         </div>
@@ -449,10 +593,10 @@
           <div class="plan-price">$79 <span>/month</span></div>
           <div class="plan-billing">Billed annually</div>
           <ul class="plan-features">
-            <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Unlimited appraisals</li>
-            <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Full catalogue access</li>
-            <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Priority shipping</li>
-            <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> 15% store discount</li>
+            <li><i class="fa-solid fa-check" style="color:var(--primary);margin-right:8px;"></i> Unlimited appraisals</li>
+            <li><i class="fa-solid fa-check" style="color:var(--primary);margin-right:8px;"></i> Full catalogue access</li>
+            <li><i class="fa-solid fa-check" style="color:var(--primary);margin-right:8px;"></i> Priority shipping</li>
+            <li><i class="fa-solid fa-check" style="color:var(--primary);margin-right:8px;"></i> 15% store discount</li>
           </ul>
           <a href="pricing.html" class="btn btn-primary">Choose Plan</a>
         </div>
@@ -462,10 +606,10 @@
           <div class="plan-price">$199 <span>/month</span></div>
           <div class="plan-billing">Billed annually</div>
           <ul class="plan-features">
-            <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Everything in Connoisseur</li>
-            <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Private viewings</li>
-            <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Dedicated advisor</li>
-            <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> 25% store discount</li>
+            <li><i class="fa-solid fa-check" style="color:var(--primary);margin-right:8px;"></i> Everything in Connoisseur</li>
+            <li><i class="fa-solid fa-check" style="color:var(--primary);margin-right:8px;"></i> Private viewings</li>
+            <li><i class="fa-solid fa-check" style="color:var(--primary);margin-right:8px;"></i> Dedicated advisor</li>
+            <li><i class="fa-solid fa-check" style="color:var(--primary);margin-right:8px;"></i> 25% store discount</li>
           </ul>
           <a href="pricing.html" class="btn btn-secondary">Choose Plan</a>
         </div>
@@ -484,7 +628,7 @@
       <div class="grid-3 fade-in">
         <div class="card">
           <div class="card-img" style="height:200px;overflow:hidden;">
-            <img src="assets/images/stamp-worldwide.jpg" alt="London Philatelic Exhibition" style="width:100%;height:100%;object-fit:cover;">
+            <img src="assets/images/event-london-expo.jpg" alt="London Philatelic Exhibition" style="width:100%;height:100%;object-fit:cover;">
           </div>
           <div class="card-body" style="display:flex;gap:16px;align-items:flex-start;">
             <div class="event-date-badge">
@@ -500,7 +644,7 @@
         </div>
         <div class="card">
           <div class="card-img" style="height:200px;overflow:hidden;">
-            <img src="assets/images/stamp-album.jpg" alt="Rare stamp auction" style="width:100%;height:100%;object-fit:cover;">
+            <img src="assets/images/event-stamp-auction.jpg" alt="Rare stamp auction" style="width:100%;height:100%;object-fit:cover;">
           </div>
           <div class="card-body" style="display:flex;gap:16px;align-items:flex-start;">
             <div class="event-date-badge">
@@ -516,7 +660,7 @@
         </div>
         <div class="card">
           <div class="card-img" style="height:200px;overflow:hidden;">
-            <img src="assets/images/stamp-tools.jpg" alt="Philately masterclass" style="width:100%;height:100%;object-fit:cover;">
+            <img src="assets/images/event-masterclass.jpg" alt="Philately masterclass" style="width:100%;height:100%;object-fit:cover;">
           </div>
           <div class="card-body" style="display:flex;gap:16px;align-items:flex-start;">
             <div class="event-date-badge">

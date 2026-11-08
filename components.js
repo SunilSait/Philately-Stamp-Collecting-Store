@@ -3,19 +3,19 @@
    Components & Utilities
    ============================================ */
 
-// ---- SVG Icons (Lucide-style) ----
+// ---- Font Awesome Icons ----
 const ICONS = {
-  sun: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>',
-  moon: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>',
-  globe: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>',
-  menu: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="18" x2="20" y2="18"/></svg>',
-  x: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>',
-  chevronDown: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>',
-  stamp: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21h14"/><path d="M9 21v-2a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M12 15V7"/><path d="M8 3h8a2 2 0 0 1 2 2v2a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V5a2 2 0 0 1 2-2z"/></svg>',
-  facebook: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>',
-  twitter: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>',
-  instagram: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>',
-  youtube: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>',
+  sun: '<i class="fa-solid fa-sun"></i>',
+  moon: '<i class="fa-solid fa-moon"></i>',
+  globe: '<i class="fa-solid fa-globe"></i>',
+  menu: '<i class="fa-solid fa-bars"></i>',
+  x: '<i class="fa-solid fa-xmark"></i>',
+  chevronDown: '<i class="fa-solid fa-chevron-down"></i>',
+  stamp: '<i class="fa-solid fa-stamp"></i>',
+  facebook: '<i class="fa-brands fa-facebook-f"></i>',
+  twitter: '<i class="fa-brands fa-x-twitter"></i>',
+  instagram: '<i class="fa-brands fa-instagram"></i>',
+  youtube: '<i class="fa-brands fa-youtube"></i>',
 };
 
 // ---- Current page detection ----
@@ -37,18 +37,14 @@ function injectNav() {
     { href: 'contact.html', label: 'Contact', pages: ['contact.html'] },
   ];
 
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  const isRTL = document.documentElement.getAttribute('dir') === 'rtl';
+
   const navHTML = `
     <header class="header" id="mainHeader">
       <div class="header-inner">
-        <a href="index.html" class="logo">
-          <div class="logo-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="3" width="18" height="18" rx="1"/>
-              <path d="M7 7h.01M17 7h.01M7 17h.01M17 17h.01"/>
-              <rect x="7" y="7" width="10" height="10" rx="0.5"/>
-              <circle cx="12" cy="12" r="2.5"/>
-            </svg>
-          </div>
+        <a href="index.html" class="logo" aria-label="PhilaVault Home">
+          <div class="logo-icon"><i class="fa-solid fa-stamp"></i></div>
           <span>PhilaVault</span>
         </a>
 
@@ -59,30 +55,38 @@ function injectNav() {
         </nav>
 
         <div class="header-actions">
-          <button class="icon-btn" onclick="toggleTheme()" aria-label="Toggle theme" id="themeToggle">
-            ${ICONS.moon}
+          <button class="icon-btn theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme" id="themeToggle" title="Toggle Theme">
+            <span class="theme-icon-wrap">${isDark ? ICONS.sun : ICONS.moon}</span>
           </button>
-          <button class="icon-btn" onclick="toggleRTL()" aria-label="Toggle RTL" id="rtlToggle">
-            ${ICONS.globe}
+          <button class="icon-btn" onclick="toggleRTL()" aria-label="Toggle RTL" id="rtlToggle" title="Toggle Direction">
+            <span class="dir-label" style="font-size:0.6875rem;font-weight:600;">${isRTL ? 'RTL' : 'LTR'}</span>
           </button>
-          <a href="login.html" class="btn btn-secondary" style="display:inline-flex">Sign In</a>
-          <a href="signup.html" class="btn btn-primary" style="display:inline-flex">Sign Up</a>
-          <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()" aria-label="Menu">
-            <span></span>
-            <span></span>
-            <span></span>
+          <a href="signup.html" class="btn btn-primary btn-sm" style="display:inline-flex">Sign Up</a>
+          <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu(event)" aria-label="Toggle menu">
+            <span class="mobile-menu-icon">${ICONS.menu}</span>
           </button>
         </div>
       </div>
     </header>
 
+    <!-- Mobile Backdrop -->
+    <div class="mobile-backdrop" id="mobileBackdrop" onclick="toggleMobileMenu(event)"></div>
+
+    <!-- Mobile Menu Drawer -->
     <div class="mobile-nav" id="mobileNav">
       ${navLinks.map(link => `
-        <a href="${link.href}" class="${link.pages.includes(currentPage) ? 'active' : ''}">${link.label}</a>
+        <a href="${link.href}" class="mob-link ${link.pages.includes(currentPage) ? 'active' : ''}">${link.label}</a>
       `).join('')}
       <div class="mobile-actions">
-        <a href="login.html" class="btn btn-secondary">Sign In</a>
-        <a href="signup.html" class="btn btn-primary">Sign Up</a>
+        <a href="signup.html" class="btn btn-primary w-full">Sign Up</a>
+      </div>
+      <div class="mob-toggles">
+        <button onclick="toggleRTL()" class="icon-btn" title="Toggle Direction">
+          <span class="dir-label" style="font-size:0.6875rem;font-weight:600;">${isRTL ? 'RTL' : 'LTR'}</span>
+        </button>
+        <button onclick="toggleTheme()" class="icon-btn theme-toggle" title="Toggle Theme" aria-label="Toggle dark mode">
+          <span class="theme-icon-wrap">${isDark ? ICONS.sun : ICONS.moon}</span>
+        </button>
       </div>
     </div>
   `;
@@ -96,16 +100,10 @@ function injectFooter() {
     <footer class="footer">
       <div class="container">
         <div class="footer-grid">
+          <!-- Column 1: Brand & Socials -->
           <div class="footer-brand">
-            <a href="index.html" class="logo" style="margin-bottom:8px;">
-              <div class="logo-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="3" y="3" width="18" height="18" rx="1"/>
-                  <path d="M7 7h.01M17 7h.01M7 17h.01M17 17h.01"/>
-                  <rect x="7" y="7" width="10" height="10" rx="0.5"/>
-                  <circle cx="12" cy="12" r="2.5"/>
-                </svg>
-              </div>
+            <a href="index.html" class="logo" style="margin-bottom:12px;display:inline-flex;" aria-label="PhilaVault Home">
+              <div class="logo-icon"><i class="fa-solid fa-stamp"></i></div>
               <span>PhilaVault</span>
             </a>
             <p>Your trusted destination for rare stamps, expert appraisals, and philatelic treasures from around the globe. Preserving postal history since 1987.</p>
@@ -117,10 +115,12 @@ function injectFooter() {
             </div>
           </div>
 
+          <!-- Column 2: Quick Links -->
           <div class="footer-col">
-            <h4>Quick Links</h4>
-            <ul>
+            <h4 class="footer-col-title">Quick Links</h4>
+            <ul class="footer-links">
               <li><a href="index.html">Home</a></li>
+              <li><a href="home2.html">Home 2 — Premium</a></li>
               <li><a href="products.html">Products</a></li>
               <li><a href="appraisal.html">Appraisal Services</a></li>
               <li><a href="sell.html">Sell Your Collection</a></li>
@@ -129,34 +129,40 @@ function injectFooter() {
             </ul>
           </div>
 
+          <!-- Column 3: Resources -->
           <div class="footer-col">
-            <h4>Resources</h4>
-            <ul>
+            <h4 class="footer-col-title">Resources</h4>
+            <ul class="footer-links">
               <li><a href="coming-soon.html">Stamp Catalog</a></li>
               <li><a href="coming-soon.html">Collector's Blog</a></li>
               <li><a href="coming-soon.html">Grading Guide</a></li>
               <li><a href="coming-soon.html">Stamp Glossary</a></li>
               <li><a href="coming-soon.html">Community Forum</a></li>
+              <li><a href="login.html">Sign In</a></li>
+              <li><a href="signup.html">Sign Up</a></li>
             </ul>
           </div>
 
-          <div class="footer-col">
-            <h4>Contact</h4>
-            <ul>
-              <li>128 Heritage Lane</li>
-              <li>London, WC2H 9JQ, UK</li>
-              <li style="margin-top:12px;"><a href="tel:+442071234567">+44 20 7123 4567</a></li>
-              <li><a href="mailto:hello@philavault.com">hello@philavault.com</a></li>
-              <li style="margin-top:12px;">Mon–Sat: 9am – 6pm</li>
-            </ul>
+          <!-- Column 4: Newsletter Card -->
+          <div class="footer-col footer-col-newsletter">
+            <div class="footer-newsletter-card">
+              <h4 class="footer-newsletter-title">Stay Updated</h4>
+              <p class="footer-newsletter-desc">Get rare stamp arrivals, auction schedules, appraisal invites & exclusive offers.</p>
+              <form onsubmit="event.preventDefault(); alert('Subscribed successfully! Thank you for subscribing to PhilaVault.'); this.reset();" class="footer-newsletter-form">
+                <input type="email" placeholder="your@email.com" class="footer-newsletter-input" required>
+                <button type="submit" class="footer-newsletter-btn">Subscribe</button>
+              </form>
+            </div>
           </div>
         </div>
 
+        <!-- Footer Bottom Bar -->
         <div class="footer-bottom">
-          <p>&copy; ${new Date().getFullYear()} PhilaVault. All rights reserved.</p>
+          <p class="footer-copyright">&copy; ${new Date().getFullYear()} PhilaVault. All rights reserved.</p>
           <div class="footer-bottom-links">
             <a href="coming-soon.html">Privacy Policy</a>
             <a href="coming-soon.html">Terms of Service</a>
+            <a href="coming-soon.html">Cookie Policy</a>
             <a href="coming-soon.html">Sitemap</a>
           </div>
         </div>
@@ -186,7 +192,12 @@ function toggleTheme() {
 function updateThemeIcon(isDark) {
   const toggleBtns = document.querySelectorAll('#themeToggle, .theme-toggle');
   toggleBtns.forEach(btn => {
-    btn.innerHTML = isDark ? ICONS.sun : ICONS.moon;
+    const wrap = btn.querySelector('.theme-icon-wrap');
+    if (wrap) {
+      wrap.innerHTML = isDark ? ICONS.sun : ICONS.moon;
+    } else {
+      btn.innerHTML = isDark ? ICONS.sun : ICONS.moon;
+    }
   });
 }
 
@@ -199,6 +210,13 @@ function initTheme() {
 }
 
 // ---- RTL Toggle ----
+function updateRTLLabels() {
+  const isRTL = document.documentElement.getAttribute('dir') === 'rtl';
+  document.querySelectorAll('.dir-label').forEach(el => {
+    el.textContent = isRTL ? 'RTL' : 'LTR';
+  });
+}
+
 function toggleRTL() {
   const html = document.documentElement;
   const isRTL = html.getAttribute('dir') === 'rtl';
@@ -210,6 +228,7 @@ function toggleRTL() {
     html.setAttribute('dir', 'rtl');
     localStorage.setItem('pv_dir', 'rtl');
   }
+  updateRTLLabels();
 }
 
 function initRTL() {
@@ -217,15 +236,53 @@ function initRTL() {
   if (saved === 'rtl') {
     document.documentElement.setAttribute('dir', 'rtl');
   }
+  updateRTLLabels();
 }
 
 // ---- Mobile Menu ----
-function toggleMobileMenu() {
-  const btn = document.getElementById('mobileMenuBtn');
+function toggleMobileMenu(e) {
+  if (e && e.stopPropagation) {
+    e.stopPropagation();
+  }
   const nav = document.getElementById('mobileNav');
-  btn.classList.toggle('active');
-  nav.classList.toggle('active');
+  const backdrop = document.getElementById('mobileBackdrop');
+  const btn = document.getElementById('mobileMenuBtn');
+  const iconEl = btn ? btn.querySelector('.mobile-menu-icon') : null;
+  if (!nav) return;
+
+  const isOpen = nav.classList.contains('active') || nav.classList.contains('open');
+  if (isOpen) {
+    nav.classList.remove('active', 'open');
+    if (backdrop) backdrop.classList.remove('open');
+    if (btn) btn.classList.remove('active');
+    if (iconEl) iconEl.innerHTML = ICONS.menu;
+    document.body.style.overflow = '';
+  } else {
+    nav.classList.add('active', 'open');
+    if (backdrop) backdrop.classList.add('open');
+    if (btn) btn.classList.add('active');
+    if (iconEl) iconEl.innerHTML = ICONS.x;
+    document.body.style.overflow = 'hidden';
+  }
 }
+
+// Close mobile menu on outside click or navigation link click
+document.addEventListener('click', (e) => {
+  const nav = document.getElementById('mobileNav');
+  const backdrop = document.getElementById('mobileBackdrop');
+  const btn = document.getElementById('mobileMenuBtn');
+  if (!nav || (!nav.classList.contains('active') && !nav.classList.contains('open'))) return;
+
+  if (btn && (btn === e.target || btn.contains(e.target))) return;
+  if (nav.contains(e.target) && !e.target.closest('a')) return;
+
+  nav.classList.remove('active', 'open');
+  if (backdrop) backdrop.classList.remove('open');
+  if (btn) btn.classList.remove('active');
+  const iconEl = btn ? btn.querySelector('.mobile-menu-icon') : null;
+  if (iconEl) iconEl.innerHTML = ICONS.menu;
+  document.body.style.overflow = '';
+});
 
 // ---- Header Scroll Effect ----
 function initScrollEffect() {
@@ -353,12 +410,27 @@ function togglePassword(inputId) {
   
   if (input.type === 'password') {
     input.type = 'text';
-    btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>';
+    if (btn) {
+      btn.innerHTML = '<i class="fa-solid fa-eye-slash"></i>';
+    }
   } else {
     input.type = 'password';
-    btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>';
+    if (btn) {
+      btn.innerHTML = '<i class="fa-solid fa-eye"></i>';
+    }
   }
 }
+
+function togglePasswordVisibility(inputId, btn) {
+  togglePassword(inputId);
+}
+
+// Aliases for compatibility
+window.toggleDir = toggleRTL;
+window.initAuthPage = function() {
+  initTheme();
+  initRTL();
+};
 
 // ---- Product Filter Tabs ----
 function initProductFilters() {
@@ -384,6 +456,66 @@ function initProductFilters() {
   });
 }
 
+// ---- Hero Slider (Home 2) ----
+function initHeroSlider() {
+  const track = document.getElementById('hero-slides-track');
+  if (!track) return;
+
+  const slides = track.querySelectorAll('.hero-split-slide');
+  const dots = document.querySelectorAll('.hero-home2-dot');
+  if (!slides.length) return;
+
+  let current = 0;
+  let timer = null;
+  const interval = 5500;
+
+  function goToSlide(index) {
+    if (index < 0) index = slides.length - 1;
+    if (index >= slides.length) index = 0;
+    current = index;
+
+    slides.forEach((s, idx) => {
+      s.classList.toggle('active', idx === current);
+    });
+
+    dots.forEach((d, idx) => {
+      d.classList.toggle('active', idx === current);
+    });
+  }
+
+  function next() {
+    goToSlide(current + 1);
+  }
+
+  function startTimer() {
+    stopTimer();
+    timer = setInterval(next, interval);
+  }
+
+  function stopTimer() {
+    if (timer) {
+      clearInterval(timer);
+      timer = null;
+    }
+  }
+
+  dots.forEach((dot, idx) => {
+    dot.addEventListener('click', function(e) {
+      e.preventDefault();
+      goToSlide(idx);
+      startTimer();
+    });
+  });
+
+  const heroSection = document.getElementById('hero-section');
+  if (heroSection) {
+    heroSection.addEventListener('mouseenter', stopTimer);
+    heroSection.addEventListener('mouseleave', startTimer);
+  }
+
+  startTimer();
+}
+
 // ---- Initialization ----
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
@@ -391,11 +523,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Only inject nav/footer on pages that need them
   const body = document.body;
-  const isAuthPage = body.classList.contains('auth-page-body');
-  const isErrorPage = body.classList.contains('error-page-body');
-  const isComingSoon = body.classList.contains('coming-soon-body');
+  const isAuthPage = body.classList.contains('auth-page-body') || body.classList.contains('auth-page');
+  const isErrorPage = body.classList.contains('error-page-body') || body.classList.contains('error-page');
+  const isComingSoon = body.classList.contains('coming-soon-body') || body.classList.contains('coming-soon-page');
+  const isFullscreenPage = body.classList.contains('fullscreen-page');
 
-  if (!isAuthPage && !isErrorPage && !isComingSoon) {
+  if (!isAuthPage && !isErrorPage && !isComingSoon && !isFullscreenPage) {
     injectNav();
     injectFooter();
   }
@@ -406,4 +539,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initCounters();
   initCountdown();
   initProductFilters();
+  initHeroSlider();
 });
