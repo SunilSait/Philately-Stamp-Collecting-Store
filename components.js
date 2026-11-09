@@ -536,232 +536,256 @@ function initPhilatelicParticles() {
 
 // ---- Home 2 Thematic Philatelic Background Animation & Effects (Home 2 Only) ----
 function initHome2PhilatelyAnimation() {
-  const canvas = document.getElementById('home2-philately-canvas');
-  const heroSection = document.getElementById('hero-section');
+  var canvas = document.getElementById('home2-philately-canvas');
+  var heroSection = document.getElementById('hero-section');
+  var spotlight = document.getElementById('heroHome2Spotlight');
+
   if (!canvas || !heroSection || !heroSection.classList.contains('hero-home2')) return;
 
-  const spotlight = document.getElementById('heroHome2Spotlight');
+  var ctx = canvas.getContext('2d');
+  if (!ctx) return;
+
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     canvas.style.display = 'none';
     if (spotlight) spotlight.style.display = 'none';
     return;
   }
 
-  const ctx = canvas.getContext('2d');
-  if (!ctx) return;
-
-  let width = 0;
-  let height = 0;
-  let dpr = 1;
-  let particles = [];
-  let animId = null;
-  let isVisible = true;
-
-  // Mouse interaction state for spotlight & particle deflection
-  let targetMouseX = -1000;
-  let targetMouseY = -1000;
-  let mouseX = -1000;
-  let mouseY = -1000;
-  let isMouseActive = false;
-
   function isDark() {
     return document.documentElement.getAttribute('data-theme') === 'dark';
   }
 
-  function resize() {
-    const rect = heroSection.getBoundingClientRect();
-    width = Math.max(rect.width, 320);
-    height = Math.max(rect.height, 400);
-    dpr = Math.min(window.devicePixelRatio || 1, 2);
+  var W = 0, H = 0, dpr = 1;
+  var orbs = [];
+  var bursts = [];
+  var animId = null;
+  var isVisible = true;
+  var t = 0;
 
-    canvas.width = Math.floor(width * dpr);
-    canvas.height = Math.floor(height * dpr);
-    canvas.style.width = width + 'px';
-    canvas.style.height = height + 'px';
+  var tmx = -9999, tmy = -9999, mx = -9999, my = -9999, mIn = false;
 
-    createParticles();
+  function makeOrb() {
+    var size = 3 + Math.random() * 22;
+    var isLarge = size > 14;
+    return {
+      x: Math.random() * W,
+      y: Math.random() * H,
+      vx: (Math.random() - 0.5) * 0.25,
+      vy: (Math.random() - 0.5) * 0.2,
+      r: size,
+      baseR: size,
+      baseAlpha: isLarge ? (0.04 + Math.random() * 0.06) : (0.08 + Math.random() * 0.18),
+      alpha: 0,
+      pulsePhase: Math.random() * Math.PI * 2,
+      pulseSpeed: 0.008 + Math.random() * 0.018,
+      // Color type: 0=gold, 1=claret, 2=warm-white
+      hue: Math.random() < 0.5 ? 0 : (Math.random() < 0.6 ? 1 : 2)
+    };
   }
 
-  function createParticles() {
-    particles = [];
-    const count = width < 768 ? 28 : 55;
+  function resize() {
+    var rect = heroSection.getBoundingClientRect();
+    W = Math.max(rect.width, 320);
+    H = Math.max(rect.height, 400);
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = Math.floor(W * dpr);
+    canvas.height = Math.floor(H * dpr);
+    canvas.style.width = W + 'px';
+    canvas.style.height = H + 'px';
+    seedOrbs();
+  }
 
-    for (let i = 0; i < count; i++) {
-      const rand = Math.random();
-      let type = 'dust';
-      let size = 1.0 + Math.random() * 1.8;
+  function seedOrbs() {
+    orbs = [];
+    var count = W < 768 ? 18 : 36;
+    for (var i = 0; i < count; i++) {
+      orbs.push(makeOrb());
+    }
+  }
 
-      if (rand < 0.55) {
-        type = 'dust';
-        size = 1.0 + Math.random() * 1.8;
-      } else if (rand < 0.82) {
-        type = 'spark';
-        size = 3.0 + Math.random() * 3.5;
-      } else {
-        type = 'stamp-glyph';
-        size = 7.0 + Math.random() * 5.0;
-      }
+  // Events
+  heroSection.addEventListener('mousemove', function(e) {
+    var rect = heroSection.getBoundingClientRect();
+    tmx = e.clientX - rect.left;
+    tmy = e.clientY - rect.top;
+    mIn = true;
+  });
+  heroSection.addEventListener('mouseleave', function() { mIn = false; });
 
-      const baseVy = -(0.18 + Math.random() * 0.35);
-
-      particles.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        vx: 0,
-        vy: baseVy,
-        baseVy: baseVy,
-        size: size,
-        type: type,
-        alpha: 0.2 + Math.random() * 0.55,
-        baseAlpha: 0.2 + Math.random() * 0.55,
-        pulseSpeed: 0.015 + Math.random() * 0.03,
-        pulsePhase: Math.random() * Math.PI * 2,
-        wobbleSpeed: 0.012 + Math.random() * 0.02,
-        wobbleAmp: 0.3 + Math.random() * 0.6,
-        wobblePhase: Math.random() * Math.PI * 2,
-        rotation: Math.random() * Math.PI * 2,
-        rotSpeed: (Math.random() - 0.5) * 0.015
+  heroSection.addEventListener('click', function(e) {
+    var rect = heroSection.getBoundingClientRect();
+    var bx = e.clientX - rect.left;
+    var by = e.clientY - rect.top;
+    var count = 12 + Math.floor(Math.random() * 8);
+    for (var i = 0; i < count; i++) {
+      var angle = (i / count) * Math.PI * 2 + (Math.random() - 0.5) * 0.4;
+      var speed = 1.5 + Math.random() * 3;
+      bursts.push({
+        x: bx, y: by,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed,
+        r: 1.0 + Math.random() * 1.8,
+        alpha: 0.6 + Math.random() * 0.3,
+        life: 1.0
       });
     }
-  }
+  });
 
-  // Draw 4-point loupe glint / sparkle
-  function drawSparkle(context, x, y, r, rot, alpha, dark) {
-    context.save();
-    context.translate(x, y);
-    context.rotate(rot);
-    context.fillStyle = dark
-      ? `rgba(238, 205, 120, ${alpha})`
-      : `rgba(184, 134, 11, ${alpha * 0.9})`;
-    context.beginPath();
-    for (let i = 0; i < 4; i++) {
-      const angle = (i * Math.PI) / 2;
-      context.lineTo(Math.cos(angle) * r, Math.sin(angle) * r);
-      const halfAngle = angle + Math.PI / 4;
-      context.lineTo(Math.cos(halfAngle) * (r * 0.22), Math.sin(halfAngle) * (r * 0.22));
+  function getColor(hue, alpha, dk) {
+    if (hue === 0) {
+      return dk
+        ? 'rgba(226,188,90,' + alpha + ')'
+        : 'rgba(184,134,11,' + alpha + ')';
+    } else if (hue === 1) {
+      return dk
+        ? 'rgba(180,60,60,' + alpha + ')'
+        : 'rgba(139,26,26,' + alpha + ')';
+    } else {
+      return dk
+        ? 'rgba(220,210,180,' + alpha + ')'
+        : 'rgba(160,140,100,' + alpha + ')';
     }
-    context.closePath();
-    context.fill();
-    context.restore();
   }
-
-  // Draw mini perforated stamp watermark glyph
-  function drawStampGlyph(context, x, y, size, rot, alpha, dark) {
-    context.save();
-    context.translate(x, y);
-    context.rotate(rot);
-    const strokeStyle = dark
-      ? `rgba(226, 188, 90, ${alpha * 0.6})`
-      : `rgba(168, 118, 22, ${alpha * 0.5})`;
-    context.strokeStyle = strokeStyle;
-    context.lineWidth = 1;
-    context.setLineDash([2, 2]);
-    const w = size * 1.1;
-    const h = size * 1.35;
-    context.strokeRect(-w / 2, -h / 2, w, h);
-    context.setLineDash([]);
-    // Inner tiny Maltese pip
-    context.fillStyle = strokeStyle;
-    context.beginPath();
-    context.arc(0, 0, 1.2, 0, Math.PI * 2);
-    context.fill();
-    context.restore();
-  }
-
-  // Mouse tracking
-  heroSection.addEventListener('mousemove', (e) => {
-    const rect = heroSection.getBoundingClientRect();
-    targetMouseX = e.clientX - rect.left;
-    targetMouseY = e.clientY - rect.top;
-    isMouseActive = true;
-  });
-
-  heroSection.addEventListener('mouseleave', () => {
-    isMouseActive = false;
-  });
 
   function render() {
     if (!isVisible) return;
-
     ctx.save();
     ctx.scale(dpr, dpr);
-    ctx.clearRect(0, 0, width, height);
+    ctx.clearRect(0, 0, W, H);
 
-    const dark = isDark();
+    var dk = isDark();
+    t += 0.01;
 
-    // Smooth mouse spotlight motion
+    // Spotlight
     if (spotlight) {
-      if (isMouseActive) {
-        mouseX += (targetMouseX - mouseX) * 0.1;
-        mouseY += (targetMouseY - mouseY) * 0.1;
-        spotlight.style.left = mouseX + 'px';
-        spotlight.style.top = mouseY + 'px';
+      if (mIn) {
+        mx += (tmx - mx) * 0.08;
+        my += (tmy - my) * 0.08;
+        spotlight.style.left = mx + 'px';
+        spotlight.style.top = my + 'px';
         spotlight.style.opacity = '1';
       } else {
         spotlight.style.opacity = '0';
       }
     }
 
-    particles.forEach(p => {
-      p.wobblePhase += p.wobbleSpeed;
-      p.pulsePhase += p.pulseSpeed;
-      p.rotation += p.rotSpeed;
+    // ==== 1. ARCHIVAL SILK THREADS between nearby orbs ====
+    var threadDist = W < 768 ? 100 : 140;
+    for (var i = 0; i < orbs.length; i++) {
+      for (var j = i + 1; j < orbs.length; j++) {
+        var dx = orbs[i].x - orbs[j].x;
+        var dy = orbs[i].y - orbs[j].y;
+        var dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < threadDist) {
+          var lineAlpha = (1 - dist / threadDist) * (dk ? 0.08 : 0.05);
+          // Brighten threads near cursor
+          if (mIn) {
+            var midX = (orbs[i].x + orbs[j].x) / 2;
+            var midY = (orbs[i].y + orbs[j].y) / 2;
+            var mDist = Math.sqrt((midX - mx) * (midX - mx) + (midY - my) * (midY - my));
+            if (mDist < 150) {
+              lineAlpha += (1 - mDist / 150) * (dk ? 0.12 : 0.08);
+            }
+          }
+          ctx.beginPath();
+          ctx.moveTo(orbs[i].x, orbs[i].y);
+          ctx.lineTo(orbs[j].x, orbs[j].y);
+          ctx.strokeStyle = dk
+            ? 'rgba(226,188,90,' + lineAlpha + ')'
+            : 'rgba(184,134,11,' + lineAlpha + ')';
+          ctx.lineWidth = 0.5;
+          ctx.stroke();
+        }
+      }
+    }
 
-      const currentAlpha = Math.max(0.05, Math.min(0.9, p.baseAlpha * (0.65 + 0.35 * Math.sin(p.pulsePhase))));
-      p.x += Math.sin(p.wobblePhase) * p.wobbleAmp;
-      p.y += p.vy;
+    // ==== 2. LUMINOUS BOKEH ORBS ====
+    for (var oi = 0; oi < orbs.length; oi++) {
+      var o = orbs[oi];
+      o.pulsePhase += o.pulseSpeed;
+      o.x += o.vx;
+      o.y += o.vy;
 
-      // Mouse gentle deflection
-      if (isMouseActive) {
-        const dx = p.x - mouseX;
-        const dy = p.y - mouseY;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        const maxDist = 120;
-        if (dist < maxDist && dist > 0) {
-          const force = (1 - dist / maxDist) * 1.2;
-          p.x += (dx / dist) * force;
-          p.y += (dy / dist) * force;
+      // Wrap boundaries softly
+      if (o.x < -40) o.x = W + 30;
+      if (o.x > W + 40) o.x = -30;
+      if (o.y < -40) o.y = H + 30;
+      if (o.y > H + 40) o.y = -30;
+
+      // Pulsing alpha
+      var pulse = 0.6 + 0.4 * Math.sin(o.pulsePhase);
+      o.alpha = o.baseAlpha * pulse;
+      o.r = o.baseR;
+
+      // Cursor illumination: orbs near cursor glow brighter and grow
+      if (mIn) {
+        var odx = o.x - mx;
+        var ody = o.y - my;
+        var oDist = Math.sqrt(odx * odx + ody * ody);
+        if (oDist < 180) {
+          var prox = 1 - oDist / 180;
+          o.alpha = Math.min(0.6, o.alpha + prox * (dk ? 0.35 : 0.25));
+          o.r = o.baseR * (1 + prox * 0.3);
+          // Gentle push
+          if (oDist > 1) {
+            o.x += (odx / oDist) * prox * 0.8;
+            o.y += (ody / oDist) * prox * 0.8;
+          }
         }
       }
 
-      // Recycle when offscreen
-      if (p.y < -20) {
-        p.y = height + 15;
-        p.x = Math.random() * width;
-      }
-      if (p.x < -20) p.x = width + 10;
-      if (p.x > width + 20) p.x = -10;
+      // Draw orb with soft radial gradient
+      var grad = ctx.createRadialGradient(o.x, o.y, 0, o.x, o.y, o.r);
+      var col = getColor(o.hue, o.alpha, dk);
+      var colCenter = getColor(o.hue, o.alpha * 1.5, dk);
+      grad.addColorStop(0, colCenter);
+      grad.addColorStop(0.5, col);
+      grad.addColorStop(1, getColor(o.hue, 0, dk));
 
-      // Render based on particle type
-      if (p.type === 'dust') {
+      ctx.beginPath();
+      ctx.arc(o.x, o.y, o.r, 0, Math.PI * 2);
+      ctx.fillStyle = grad;
+      ctx.fill();
+
+      // Outer soft halo for larger orbs
+      if (o.baseR > 12) {
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = dark
-          ? `rgba(226, 188, 90, ${currentAlpha})`
-          : `rgba(184, 134, 11, ${currentAlpha * 0.8})`;
+        ctx.arc(o.x, o.y, o.r * 1.8, 0, Math.PI * 2);
+        ctx.fillStyle = getColor(o.hue, o.alpha * 0.15, dk);
         ctx.fill();
-      } else if (p.type === 'spark') {
-        drawSparkle(ctx, p.x, p.y, p.size, p.rotation, currentAlpha, dark);
-      } else if (p.type === 'stamp-glyph') {
-        drawStampGlyph(ctx, p.x, p.y, p.size, p.rotation, currentAlpha, dark);
       }
-    });
+    }
+
+    // ==== 3. CLICK BURST PARTICLES ====
+    for (var bi = bursts.length - 1; bi >= 0; bi--) {
+      var b = bursts[bi];
+      b.x += b.vx;
+      b.y += b.vy;
+      b.vx *= 0.96;
+      b.vy *= 0.96;
+      b.life -= 0.02;
+      b.alpha = b.life * 0.7;
+
+      if (b.life <= 0) { bursts.splice(bi, 1); continue; }
+
+      ctx.beginPath();
+      ctx.arc(b.x, b.y, b.r * b.life, 0, Math.PI * 2);
+      ctx.fillStyle = dk
+        ? 'rgba(226,188,90,' + b.alpha + ')'
+        : 'rgba(184,134,11,' + (b.alpha * 0.8) + ')';
+      ctx.fill();
+    }
 
     ctx.restore();
     animId = requestAnimationFrame(render);
   }
 
-  // IntersectionObserver to pause when off-screen
   if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
         isVisible = entry.isIntersecting;
-        if (isVisible && !animId) {
-          animId = requestAnimationFrame(render);
-        } else if (!isVisible && animId) {
-          cancelAnimationFrame(animId);
-          animId = null;
-        }
+        if (isVisible && !animId) animId = requestAnimationFrame(render);
+        else if (!isVisible && animId) { cancelAnimationFrame(animId); animId = null; }
       });
     }, { threshold: 0.1 });
     observer.observe(heroSection);

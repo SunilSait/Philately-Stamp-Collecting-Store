@@ -13,8 +13,8 @@
 </head>
 <body>
 
-  <!-- ==================== HERO (Archival Specimen Sheet Gallery) ==================== -->
-  <section class="hero hero-archive-section" id="hero" aria-label="Philatelic Gallery Showcase">
+  <!-- ==================== HERO (3-Slide Archival Carousel) ==================== -->
+  <section class="hero hero-archive-section hero-slider-section" id="heroSliderSection" aria-label="Philatelic Gallery Showcase">
     
     <!-- Theme-Inspired Philatelic Atmosphere & Canvas -->
     <div class="hero-canvas-wrap" aria-hidden="true">
@@ -24,97 +24,307 @@
     </div>
 
     <div class="container" style="position:relative;z-index:2;width:100%;">
-      <div class="hero-split-grid">
-        
-        <!-- Left Column: Editorial Narrative & Action CTAs -->
-        <div class="hero-content fade-in">
-          <div class="hero-prestige-badge">
-            <i class="fa-solid fa-stamp"></i>
-            <span>Preserving Postal History &bull; Est. 1987 London</span>
-          </div>
+      <!-- Slides Wrapper -->
+      <div class="hero-slides-wrapper" id="heroSlidesWrapper">
 
-          <h1 class="hero-title">
-            Discover the World Through <span class="highlight">Rare Stamps</span>
-          </h1>
+        <!-- ==================== SLIDE 1: Discovery & 3x2 Archival Specimen Mosaic ==================== -->
+        <div class="hero-slide active" data-slide="0">
+          <div class="hero-split-grid">
+            <!-- Left Column: Editorial Narrative & Action CTAs -->
+            <div class="hero-content">
+              <div class="hero-prestige-badge">
+                <i class="fa-solid fa-stamp"></i>
+                <span>Preserving Postal History &bull; Est. 1987 London</span>
+              </div>
 
-          <p class="hero-description">
-            PhilaVault is the premier global destination for discerning philatelists. Explore certified museum-grade collections, professional auction appraisals, and archival specimens that illuminate world history.
-          </p>
+              <h1 class="hero-title">
+                Discover the World Through <span class="highlight">Rare Stamps</span>
+              </h1>
 
-          <div class="hero-actions">
-            <a href="products.html" class="btn btn-primary btn-lg">
-              <i class="fa-solid fa-compass"></i>
-              <span>Explore Collection</span>
-            </a>
-            <a href="appraisal.html" class="btn btn-secondary btn-lg">
-              <i class="fa-solid fa-certificate"></i>
-              <span>Free Appraisal</span>
-            </a>
-          </div>
+              <p class="hero-description">
+                PhilaVault is the premier global destination for discerning philatelists. Explore certified museum-grade collections, professional auction appraisals, and archival specimens that illuminate world history.
+              </p>
 
-          <!-- Collector Trust Row -->
-          <div class="hero-trust-bar">
-            <div class="hero-trust-item">
-              <i class="fa-solid fa-shield-halved"></i>
-              <span>100% Provenance Guarantee</span>
+              <div class="hero-actions">
+                <a href="products.html" class="btn btn-primary btn-lg">
+                  <i class="fa-solid fa-compass"></i>
+                  <span>Explore Collection</span>
+                </a>
+                <a href="appraisal.html" class="btn btn-secondary btn-lg">
+                  <i class="fa-solid fa-certificate"></i>
+                  <span>Free Appraisal</span>
+                </a>
+              </div>
+
+              <!-- Collector Trust Row -->
+              <div class="hero-trust-bar">
+                <div class="hero-trust-item">
+                  <i class="fa-solid fa-shield-halved"></i>
+                  <span>100% Provenance Guarantee</span>
+                </div>
+                <div class="hero-trust-item">
+                  <i class="fa-solid fa-star"></i>
+                  <span>4.9/5 from 2,800+ Active Collectors</span>
+                </div>
+              </div>
             </div>
-            <div class="hero-trust-item">
-              <i class="fa-solid fa-star"></i>
-              <span>4.9/5 from 2,800+ Active Collectors</span>
+
+            <!-- Right Column: 3x2 Archival Specimen Sheet Mosaic -->
+            <div class="hero-visual">
+              <div class="hero-specimen-collage">
+                
+                <!-- Tile 1 -->
+                <div class="hero-specimen-tile">
+                  <img src="assets/images/hero-stamps.jpg" alt="1840 Penny Black and Victorian rarities on antique desk" width="220" height="200">
+                  <span class="hero-tile-tag">1840 Penny Black</span>
+                </div>
+
+                <!-- Tile 2 -->
+                <div class="hero-specimen-tile">
+                  <img src="assets/images/stamp-tools.jpg" alt="Master philatelist precision tweezers and magnifying loupe" width="220" height="200">
+                </div>
+
+                <!-- Tile 3 -->
+                <div class="hero-specimen-tile">
+                  <img src="assets/images/cat-european-classics.jpg" alt="Classical European imperial stamp issues" width="220" height="200">
+                  <span class="hero-tile-tag">European Classics</span>
+                </div>
+
+                <!-- Tile 4 -->
+                <div class="hero-specimen-tile">
+                  <img src="assets/images/cat-asian-dynasties.jpg" alt="Asian dynastic imperial dragons and rare postmarks" width="220" height="200">
+                  <span class="hero-tile-tag">Imperial Dynasties</span>
+                </div>
+
+                <!-- Tile 5 -->
+                <div class="hero-specimen-tile">
+                  <img src="assets/images/stamp-rare-1.jpg" alt="Rare Victorian stamp specimen with certified postmark" width="220" height="200">
+                  <span class="hero-tile-tag">Victorian Royal Mail</span>
+                </div>
+
+                <!-- Tile 6 -->
+                <div class="hero-specimen-tile">
+                  <img src="assets/images/stamp-album.jpg" alt="Leather bound philatelic album with rare specimens" width="220" height="200">
+                  <span class="hero-tile-tag">Sovereign Vault Album</span>
+                </div>
+
+                <!-- Center Floating Wax Seal Medallion -->
+                <div class="hero-wax-seal" aria-hidden="true">
+                  <i class="fa-solid fa-stamp"></i>
+                  <span>AUTHENTIC</span>
+                  <small>APS &bull; RPSL</small>
+                </div>
+
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Right Column: 3x2 Archival Specimen Sheet Mosaic -->
-        <div class="hero-visual fade-in">
-          <div class="hero-specimen-collage">
-            
-            <!-- Tile 1 -->
-            <div class="hero-specimen-tile">
-              <img src="assets/images/hero-stamps.jpg" alt="1840 Penny Black and Victorian rarities on antique desk" width="220" height="200">
-              <span class="hero-tile-tag">1840 Penny Black</span>
+        <!-- ==================== SLIDE 2: Royal British & Imperial Empire Mail ==================== -->
+        <div class="hero-slide" data-slide="1">
+          <div class="hero-split-grid">
+            <!-- Left Column: Editorial Narrative & Action CTAs -->
+            <div class="hero-content">
+              <div class="hero-prestige-badge">
+                <i class="fa-solid fa-crown"></i>
+                <span>Victorian Classics &bull; RPSL Certified</span>
+              </div>
+
+              <h1 class="hero-title">
+                Masterpieces of the <span class="highlight">Royal British Mail</span>
+              </h1>
+
+              <p class="hero-description">
+                Trace the dawn of adhesive postage from the 1840 Penny Black to rare Victorian Queen's head imperforates and British Empire colonial provisional covers, each verified with documented pedigree.
+              </p>
+
+              <div class="hero-actions">
+                <a href="products.html" class="btn btn-primary btn-lg">
+                  <i class="fa-solid fa-gem"></i>
+                  <span>Explore Royal Classics</span>
+                </a>
+                <a href="products.html" class="btn btn-secondary btn-lg">
+                  <i class="fa-solid fa-award"></i>
+                  <span>View Exhibition Sets</span>
+                </a>
+              </div>
+
+              <!-- Collector Trust Row -->
+              <div class="hero-trust-bar">
+                <div class="hero-trust-item">
+                  <i class="fa-solid fa-building-columns"></i>
+                  <span>RPSL & APS Affiliated Standards</span>
+                </div>
+                <div class="hero-trust-item">
+                  <i class="fa-solid fa-microscope"></i>
+                  <span>Spectroscopic Paper & Ink Tested</span>
+                </div>
+              </div>
             </div>
 
-            <!-- Tile 2 -->
-            <div class="hero-specimen-tile">
-              <img src="assets/images/stamp-tools.jpg" alt="Master philatelist precision tweezers and magnifying loupe" width="220" height="200">
+            <!-- Right Column: 3x2 Archival Specimen Sheet Mosaic -->
+            <div class="hero-visual">
+              <div class="hero-specimen-collage">
+                
+                <!-- Tile 1 -->
+                <div class="hero-specimen-tile">
+                  <img src="assets/images/hero-royal-british-mail.jpg" alt="1840 Two Penny Blue and Penny Black exhibition set" width="220" height="200">
+                  <span class="hero-tile-tag">1840 Two Penny Blue</span>
+                </div>
+
+                <!-- Tile 2 -->
+                <div class="hero-specimen-tile">
+                  <img src="assets/images/stamp-penny-reds.jpg" alt="1841 Victorian Penny Red imperforate plate specimen" width="220" height="200">
+                </div>
+
+                <!-- Tile 3 -->
+                <div class="hero-specimen-tile">
+                  <img src="assets/images/stamp-country-gb.jpg" alt="Great Britain Queen Victoria Jubilee issue" width="220" height="200">
+                  <span class="hero-tile-tag">Queen Victoria Jubilee</span>
+                </div>
+
+                <!-- Tile 4 -->
+                <div class="hero-specimen-tile">
+                  <img src="assets/images/stamp-cape-triangles.jpg" alt="1853 Cape of Good Hope triangular classic issue" width="220" height="200">
+                  <span class="hero-tile-tag">Cape Triangles 1853</span>
+                </div>
+
+                <!-- Tile 5 -->
+                <div class="hero-specimen-tile">
+                  <img src="assets/images/stamp-rare-2.jpg" alt="Rare British Empire colonial cover and imperforates" width="220" height="200">
+                  <span class="hero-tile-tag">Empire Specimen Cover</span>
+                </div>
+
+                <!-- Tile 6 -->
+                <div class="hero-specimen-tile">
+                  <img src="assets/images/stamp-imperial-album-bundle.jpg" alt="British Empire royal archival stamp sheets" width="220" height="200">
+                  <span class="hero-tile-tag">Royal Archive Sheets</span>
+                </div>
+
+                <!-- Center Floating Wax Seal Medallion -->
+                <div class="hero-wax-seal" aria-hidden="true">
+                  <i class="fa-solid fa-crown"></i>
+                  <span>ROYAL MAIL</span>
+                  <small>1840 &bull; RPSL</small>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== SLIDE 3: White-Glove Consignment & Vault Appraisals ==================== -->
+        <div class="hero-slide" data-slide="2">
+          <div class="hero-split-grid">
+            <!-- Left Column: Editorial Narrative & Action CTAs -->
+            <div class="hero-content">
+              <div class="hero-prestige-badge">
+                <i class="fa-solid fa-scale-balanced"></i>
+                <span>White-Glove Valuation &bull; Private Vault</span>
+              </div>
+
+              <h1 class="hero-title">
+                Expert Appraisals & <span class="highlight">Vault Acquisitions</span>
+              </h1>
+
+              <p class="hero-description">
+                Entrust your lifetime collection or family estate to certified senior philatelic curators. We deliver confidential grading, auction fair-market estimates, and discreet global private treaty placements.
+              </p>
+
+              <div class="hero-actions">
+                <a href="appraisal.html" class="btn btn-primary btn-lg">
+                  <i class="fa-solid fa-file-signature"></i>
+                  <span>Request Free Valuation</span>
+                </a>
+                <a href="sell.html" class="btn btn-secondary btn-lg">
+                  <i class="fa-solid fa-vault"></i>
+                  <span>Consign Your Archive</span>
+                </a>
+              </div>
+
+              <!-- Collector Trust Row -->
+              <div class="hero-trust-bar">
+                <div class="hero-trust-item">
+                  <i class="fa-solid fa-lock"></i>
+                  <span>Strict Confidentiality & Escrow</span>
+                </div>
+                <div class="hero-trust-item">
+                  <i class="fa-solid fa-shield"></i>
+                  <span>Lloyd's Insured Archival Custody</span>
+                </div>
+              </div>
             </div>
 
-            <!-- Tile 3 -->
-            <div class="hero-specimen-tile">
-              <img src="assets/images/cat-european-classics.jpg" alt="Classical European imperial stamp issues" width="220" height="200">
-              <span class="hero-tile-tag">European Classics</span>
-            </div>
+            <!-- Right Column: 3x2 Archival Specimen Sheet Mosaic -->
+            <div class="hero-visual">
+              <div class="hero-specimen-collage">
+                
+                <!-- Tile 1 -->
+                <div class="hero-specimen-tile">
+                  <img src="assets/images/stamp-curator-valuation.jpg" alt="Senior philatelist physical appraisal with precision loupe" width="220" height="200">
+                  <span class="hero-tile-tag">Curator Valuation</span>
+                </div>
 
-            <!-- Tile 4 -->
-            <div class="hero-specimen-tile">
-              <img src="assets/images/cat-asian-dynasties.jpg" alt="Asian dynastic imperial dragons and rare postmarks" width="220" height="200">
-              <span class="hero-tile-tag">Imperial Dynasties</span>
-            </div>
+                <!-- Tile 2 -->
+                <div class="hero-specimen-tile">
+                  <img src="assets/images/stamp-microscopic-grading.jpg" alt="High magnification forensic paper and ink grading" width="220" height="200">
+                </div>
 
-            <!-- Tile 5 -->
-            <div class="hero-specimen-tile">
-              <img src="assets/images/stamp-rare-1.jpg" alt="Rare Victorian stamp specimen with certified postmark" width="220" height="200">
-              <span class="hero-tile-tag">Victorian Royal Mail</span>
-            </div>
+                <!-- Tile 3 -->
+                <div class="hero-specimen-tile">
+                  <img src="assets/images/stamp-private-appraisal.jpg" alt="Archival certificate and fair-market appraisal document" width="220" height="200">
+                  <span class="hero-tile-tag">Certified Appraisal</span>
+                </div>
 
-            <!-- Tile 6 -->
-            <div class="hero-specimen-tile">
-              <img src="assets/images/stamp-album.jpg" alt="Leather bound philatelic album with rare specimens" width="220" height="200">
-              <span class="hero-tile-tag">Sovereign Vault Album</span>
-            </div>
+                <!-- Tile 4 -->
+                <div class="hero-specimen-tile">
+                  <img src="assets/images/stamp-grading.jpg" alt="Museum grade archival encapsulation and grading slab" width="220" height="200">
+                  <span class="hero-tile-tag">Grade 98 Superb Slab</span>
+                </div>
 
-            <!-- Center Floating Wax Seal Medallion -->
-            <div class="hero-wax-seal" aria-hidden="true">
-              <i class="fa-solid fa-stamp"></i>
-              <span>AUTHENTIC</span>
-              <small>APS &bull; RPSL</small>
-            </div>
+                <!-- Tile 5 -->
+                <div class="hero-specimen-tile">
+                  <img src="assets/images/stamp-victorian-consign-sold.jpg" alt="Discreet vault auction consignment specimen" width="220" height="200">
+                  <span class="hero-tile-tag">Private Treaty Escrow</span>
+                </div>
 
+                <!-- Tile 6 -->
+                <div class="hero-specimen-tile">
+                  <img src="assets/images/stamp-preservation.jpg" alt="Archival temperature-controlled preservation capsule" width="220" height="200">
+                  <span class="hero-tile-tag">Vault Custody Storage</span>
+                </div>
+
+                <!-- Center Floating Wax Seal Medallion -->
+                <div class="hero-wax-seal" aria-hidden="true">
+                  <i class="fa-solid fa-scale-balanced"></i>
+                  <span>CERTIFIED</span>
+                  <small>GRADE 98 &bull; VAULT</small>
+                </div>
+
+              </div>
+            </div>
           </div>
         </div>
 
       </div>
+
+      <!-- Slider Navigation: Dots & Arrow Controls -->
+      <div class="hero-slider-nav-wrap">
+        <button class="hero-slider-arrow hero-prev" id="heroPrevBtn" aria-label="Previous Slide">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <div class="hero-slider-dots">
+          <button class="hero-dot active" aria-label="Slide 1: Rare Stamps Discovery" data-index="0"></button>
+          <button class="hero-dot" aria-label="Slide 2: Royal British Mail" data-index="1"></button>
+          <button class="hero-dot" aria-label="Slide 3: White-Glove Valuation" data-index="2"></button>
+        </div>
+
+        <button class="hero-slider-arrow hero-next" id="heroNextBtn" aria-label="Next Slide">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+
     </div>
   </section>
 
@@ -194,37 +404,61 @@
     </div>
   </section>
 
-  <!-- ==================== OUR STORY (split) ==================== -->
-  <section class="section">
+  <!-- ==================== OUR HERITAGE (Museum Boutique Showcase) ==================== -->
+  <section class="heritage-showcase-section" id="heritageSection" aria-label="Our Heritage & Legacy">
     <div class="container">
-      <div class="section-split fade-in">
-        <div class="split-image">
-          <img src="assets/images/stamp-about.jpg" alt="Inside the PhilaVault shop" loading="lazy">
+      <div class="heritage-showcase-grid fade-in">
+        
+        <!-- Left Column: Archival Vitrine Frame with Showroom Photography -->
+        <div class="heritage-vitrine-wrap">
+          <div class="heritage-vitrine-frame">
+            <img src="assets/images/stamp-about.jpg" alt="Inside the historic PhilaVault London philatelic showroom" width="600" height="480" class="heritage-vitrine-img">
+            <div class="heritage-vitrine-glow" aria-hidden="true"></div>
+            
+            <!-- Top Floating Archival Stamp Pill -->
+            <div class="heritage-floating-pill">
+              <i class="fa-solid fa-building-columns"></i>
+              <span>London Boutique Showroom</span>
+            </div>
+
+            <!-- Bottom Floating Experience Medallion -->
+            <div class="heritage-experience-card">
+              <div class="heritage-exp-icon">
+                <i class="fa-solid fa-crown"></i>
+              </div>
+              <div class="heritage-exp-text">
+                <div class="heritage-exp-num">35+ Years</div>
+                <div class="heritage-exp-label">Curatorial Archival Distinction</div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="split-content">
-          <span class="section-label">Our Heritage</span>
-          <h2>A Legacy of Philatelic Excellence</h2>
-          <p>Since 1987, PhilaVault has been the trusted partner for collectors, investors, and estates worldwide. Nestled in the heart of London, our team of certified philatelists brings decades of auction-house experience to every transaction.</p>
-          <ul style="margin-bottom:24px;">
-            <li style="display:flex;align-items:center;gap:12px;padding:8px 0;color:var(--text-secondary);font-size:0.95rem;">
-              <i class="fa-solid fa-check" style="color:var(--primary);width:20px;"></i>
-              Certified by the American Philatelic Society
-            </li>
-            <li style="display:flex;align-items:center;gap:12px;padding:8px 0;color:var(--text-secondary);font-size:0.95rem;">
-              <i class="fa-solid fa-check" style="color:var(--primary);width:20px;"></i>
-              Full authentication on every item sold
-            </li>
-            <li style="display:flex;align-items:center;gap:12px;padding:8px 0;color:var(--text-secondary);font-size:0.95rem;">
-              <i class="fa-solid fa-check" style="color:var(--primary);width:20px;"></i>
-              Climate-controlled archival storage
-            </li>
-            <li style="display:flex;align-items:center;gap:12px;padding:8px 0;color:var(--text-secondary);font-size:0.95rem;">
-              <i class="fa-solid fa-check" style="color:var(--primary);width:20px;"></i>
-              Insured worldwide shipping
-            </li>
-          </ul>
-          <a href="contact.html" class="btn btn-primary">Visit Our Store</a>
+
+        <!-- Right Column: Editorial Narrative, 2x2 Credibility Badges & Actions -->
+        <div class="heritage-editorial-wrap">
+          <div class="heritage-prestige-tag">
+            <i class="fa-solid fa-stamp"></i>
+            <span>Our Heritage &bull; Est. 1987 London</span>
+          </div>
+
+          <h2 class="heritage-headline">
+            A Legacy of <span class="highlight">Philatelic Excellence</span>
+          </h2>
+
+          <p class="heritage-lead-copy">
+            Since 1987, PhilaVault has stood as the premier international destination for discerning philatelists, institutional archives, and legacy estates. Nestled in the historic heart of London, our certified curators deliver museum-grade provenance, spectroscopic testing, and confidential appraisals to every collector.
+          </p>
+
+          <!-- Action CTA -->
+          <div class="heritage-cta-row">
+            <a href="contact.html" class="btn btn-primary btn-lg">
+              <i class="fa-solid fa-calendar-check"></i>
+              <span>Book London Showroom Visit</span>
+            </a>
+          </div>
+
         </div>
+
       </div>
     </div>
   </section>
@@ -253,7 +487,7 @@
 
           <a href="products.html" style="flex:1;min-width:200px;text-align:center;position:relative;z-index:1;padding:0 16px;text-decoration:none;">
             <div style="width:100px;height:100px;border-radius:50%;overflow:hidden;margin:0 auto 12px;border:3px solid var(--secondary);background:var(--card-bg);">
-              <img src="assets/images/stamp-feature-2.jpg" alt="Edwardian Era" style="width:100%;height:100%;object-fit:cover;">
+              <img src="assets/images/stamp-era-edwardian.jpg" alt="Edwardian Era" style="width:100%;height:100%;object-fit:cover;">
             </div>
             <div style="width:14px;height:14px;border-radius:50%;background:var(--secondary);margin:0 auto 12px;border:3px solid var(--bg-secondary);"></div>
             <h4 style="font-size:1rem;margin-bottom:4px;color:var(--text-primary);">Edwardian</h4>
@@ -262,7 +496,7 @@
 
           <a href="products.html" style="flex:1;min-width:200px;text-align:center;position:relative;z-index:1;padding:0 16px;text-decoration:none;">
             <div style="width:100px;height:100px;border-radius:50%;overflow:hidden;margin:0 auto 12px;border:3px solid var(--primary);background:var(--card-bg);">
-              <img src="assets/images/stamp-feature-3.jpg" alt="Art Deco Era" style="width:100%;height:100%;object-fit:cover;">
+              <img src="assets/images/stamp-era-art-deco.jpg" alt="Art Deco Era" style="width:100%;height:100%;object-fit:cover;">
             </div>
             <div style="width:14px;height:14px;border-radius:50%;background:var(--primary);margin:0 auto 12px;border:3px solid var(--bg-secondary);"></div>
             <h4 style="font-size:1rem;margin-bottom:4px;color:var(--text-primary);">Art Deco</h4>
@@ -271,7 +505,7 @@
 
           <a href="products.html" style="flex:1;min-width:200px;text-align:center;position:relative;z-index:1;padding:0 16px;text-decoration:none;">
             <div style="width:100px;height:100px;border-radius:50%;overflow:hidden;margin:0 auto 12px;border:3px solid var(--secondary);background:var(--card-bg);">
-              <img src="assets/images/stamp-feature-4.jpg" alt="Post-War Era" style="width:100%;height:100%;object-fit:cover;">
+              <img src="assets/images/stamp-era-post-war.jpg" alt="Post-War Era" style="width:100%;height:100%;object-fit:cover;">
             </div>
             <div style="width:14px;height:14px;border-radius:50%;background:var(--secondary);margin:0 auto 12px;border:3px solid var(--bg-secondary);"></div>
             <h4 style="font-size:1rem;margin-bottom:4px;color:var(--text-primary);">Post-War</h4>
@@ -471,39 +705,107 @@
     </div>
   </section>
 
-  <!-- ==================== COMMUNITY / NEWSLETTER ==================== -->
-  <section class="section">
+  <!-- ==================== PHILATELIC COMMUNITY & GAZETTE SHOWCASE ==================== -->
+  <section class="philatelic-community-section" id="communitySection" aria-label="Join PhilaVault Philatelic Community">
     <div class="container">
-      <div class="section-split fade-in">
-        <div class="split-content">
-          <span class="section-label">Join the Community</span>
-          <h2>Connect with Fellow Philatelists</h2>
-          <p>Our community of 15,000+ collectors shares knowledge, trades stamps, and celebrates the art of philately together. Subscribe to our weekly gazette for market insights, new arrivals, and exclusive member offers.</p>
-          <form style="display:flex;gap:12px;margin-top:24px;max-width:440px;flex-wrap:wrap;" onsubmit="event.preventDefault();">
-            <input type="email" class="form-control" placeholder="Enter your email address" style="flex:1;min-width:200px;">
-            <button type="submit" class="btn btn-primary">Subscribe</button>
-          </form>
-          <p style="font-size:0.82rem;color:var(--text-muted);margin-top:12px;">Join 15,000+ subscribers. No spam, unsubscribe anytime.</p>
-        </div>
-        <div class="split-image">
-          <img src="assets/images/stamp-community.jpg" alt="Stamp collectors community" loading="lazy">
-        </div>
-      </div>
-    </div>
-  </section>
+      <div class="community-vitrine-card fade-in">
+        <div class="community-backdrop" aria-hidden="true"></div>
 
-  <!-- ==================== CTA BAND ==================== -->
-  <section style="background:var(--primary-dark);padding:80px 0;position:relative;overflow:hidden;">
-    <div style="position:absolute;top:0;left:0;right:0;bottom:0;opacity:0.06;">
-      <img src="assets/images/stamp-cta-bg.jpg" alt="" style="width:100%;height:100%;object-fit:cover;">
-    </div>
-    <div class="container" style="text-align:center;position:relative;z-index:1;">
-      <div class="fade-in">
-        <h2 style="color:#fff;margin-bottom:16px;font-size:2.2rem;">Start Your Collection Today</h2>
-        <p style="color:rgba(255,255,255,0.75);max-width:560px;margin:0 auto 32px;font-size:1.05rem;">Whether you're a seasoned philatelist or just beginning your journey, PhilaVault has the expertise and inventory to elevate your collection.</p>
-        <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-          <a href="products.html" class="btn btn-gold">Browse Collection</a>
-          <a href="contact.html" class="btn btn-secondary" style="color:#fff;border-color:rgba(255,255,255,0.4);">Contact Us</a>
+        <div class="community-grid">
+          <!-- Left Column: Editorial & Subscription -->
+          <div class="community-editorial">
+            <div class="community-pill">
+              <i class="fa-solid fa-feather-pointed"></i>
+              <span>The Philatelic Gazette &bull; Weekly Dispatch</span>
+            </div>
+
+            <h2 class="community-title">
+              Connect with <span class="highlight">Fellow Philatelists</span> Worldwide
+            </h2>
+
+            <p class="community-description">
+              Join an exclusive global guild of 15,000+ collectors, curators, and postal historians. Receive our acclaimed Thursday Gazette featuring auction price realizations, private vault arrivals, forgery advisories, and scholarly specimen monographs.
+            </p>
+
+            <!-- Newsletter Subscription Form -->
+            <form class="community-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing to the PhilaVault Gazette!');">
+              <div class="community-input-wrap">
+                <i class="fa-regular fa-envelope community-input-icon"></i>
+                <input type="email" class="community-input" placeholder="Enter your email address..." required aria-label="Email address for gazette">
+              </div>
+              <button type="submit" class="btn btn-primary community-submit-btn">
+                <span>Subscribe Free</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </form>
+
+            <div class="community-guarantee">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span>Archival Privacy Standard &bull; Strictly Zero Spam &bull; Unsubscribe Anytime</span>
+            </div>
+
+            <!-- Value Highlights Grid -->
+            <div class="community-perks-row">
+              <div class="community-perk-item">
+                <div class="community-perk-icon">
+                  <i class="fa-solid fa-chart-line"></i>
+                </div>
+                <div>
+                  <strong>Market Insights</strong>
+                  <span>Auction index trends</span>
+                </div>
+              </div>
+              <div class="community-perk-item">
+                <div class="community-perk-icon">
+                  <i class="fa-solid fa-stamp"></i>
+                </div>
+                <div>
+                  <strong>Vault Previews</strong>
+                  <span>48h member priority</span>
+                </div>
+              </div>
+              <div class="community-perk-item">
+                <div class="community-perk-icon">
+                  <i class="fa-solid fa-certificate"></i>
+                </div>
+                <div>
+                  <strong>Expert Analysis</strong>
+                  <span>APS &amp; RPSL grading</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Visual Frame with Real Photography & Floating Badges -->
+          <div class="community-visual-wrap">
+            <div class="community-vitrine-frame">
+              <img src="assets/images/stamp-community.jpg" alt="Philatelists and collectors examining rare archival stamps at a London symposium" class="community-img" loading="lazy">
+              <div class="community-frame-sheen" aria-hidden="true"></div>
+
+              <!-- Floating Top Gazette Pill -->
+              <div class="community-floating-badge top-badge">
+                <div class="comm-badge-dot"></div>
+                <span>Vol. XXXVIII &bull; Issue No. 192</span>
+              </div>
+
+              <!-- Floating Bottom Members Showcase Card -->
+              <div class="community-experience-card">
+                <div class="comm-avatar-stack">
+                  <div class="comm-avatar"><i class="fa-solid fa-user"></i></div>
+                  <div class="comm-avatar"><i class="fa-solid fa-user-check"></i></div>
+                  <div class="comm-avatar"><i class="fa-solid fa-award"></i></div>
+                  <div class="comm-avatar-count">+15k</div>
+                </div>
+                <div class="comm-exp-text">
+                  <span class="comm-exp-title">Global Collector Society</span>
+                  <span class="comm-exp-sub">Active members across 48 nations</span>
+                </div>
+                <div class="comm-exp-seal" title="Certified RPSL Guild">
+                  <i class="fa-solid fa-stamp"></i>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -561,6 +863,51 @@
           </button>
           <div class="faq-answer">
             <p>Yes, for purchases over £5,000 we offer flexible instalment plans of up to 12 months with no interest for Connoisseur and Patron members. Contact our sales team to discuss your requirements and arrange a tailored payment schedule.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ARCHIVAL CTA VITRINE BANNER ==================== -->
+  <section class="archival-cta-section" id="collectionCta" aria-label="Start Your Philatelic Collection">
+    <div class="container">
+      <div class="archival-cta-card fade-in">
+        <div class="archival-cta-backdrop" aria-hidden="true"></div>
+        <div class="archival-cta-inner">
+          <div class="archival-cta-pill">
+            <i class="fa-solid fa-stamp"></i>
+            <span>Curated Archival Philately</span>
+          </div>
+          <h2 class="archival-cta-title">
+            Start Your <span class="highlight">Archival Collection</span> Today
+          </h2>
+          <p class="archival-cta-text">
+            Whether acquiring your first historic Victorian issue or curating an institutional-grade investment portfolio, PhilaVault delivers museum-verified authenticity, white-glove security, and documented provenance.
+          </p>
+          <div class="archival-cta-actions">
+            <a href="products.html" class="btn archival-cta-btn-gold">
+              <i class="fa-solid fa-compass"></i>
+              <span>Browse Catalog</span>
+            </a>
+            <a href="contact.html" class="btn archival-cta-btn-outline">
+              <i class="fa-solid fa-envelope-open-text"></i>
+              <span>Speak with a Curator</span>
+            </a>
+          </div>
+          <div class="archival-cta-trust">
+            <div class="archival-cta-trust-item">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span>100% Lifetime Provenance Guarantee</span>
+            </div>
+            <div class="archival-cta-trust-item">
+              <i class="fa-solid fa-plane-lock"></i>
+              <span>Insured Global Courier Custody</span>
+            </div>
+            <div class="archival-cta-trust-item">
+              <i class="fa-solid fa-award"></i>
+              <span>RPSL &amp; APS Standard Certified</span>
+            </div>
           </div>
         </div>
       </div>

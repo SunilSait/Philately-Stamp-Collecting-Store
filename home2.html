@@ -162,13 +162,6 @@
         </svg>
       </div>
 
-      <div class="home2-postmark-float home2-postmark-waves">
-        <svg viewBox="0 0 280 110" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0,22 Q35,0 70,22 T140,22 T210,22 T280,22" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-          <path d="M0,52 Q35,30 70,52 T140,52 T210,52 T280,52" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-          <path d="M0,82 Q35,60 70,82 T140,82 T210,82 T280,82" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-        </svg>
-      </div>
 
       <div class="home2-postmark-float home2-postmark-maltese">
         <svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -403,37 +396,6 @@
     </div>
   </section>
 
-  <!-- ==================== PARALLAX STATS BAND ==================== -->
-  <section style="position:relative;padding:100px 0;overflow:hidden;">
-    <div style="position:absolute;top:0;left:0;right:0;bottom:0;">
-      <img src="assets/images/stamp-pricing-bg.jpg" alt="" style="width:100%;height:100%;object-fit:cover;">
-      <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(44,24,16,0.88);"></div>
-    </div>
-    <div class="container" style="position:relative;z-index:1;text-align:center;">
-      <div class="fade-in">
-        <span style="font-size:0.8rem;font-weight:600;text-transform:uppercase;letter-spacing:3px;color:var(--secondary);">Heritage of Excellence</span>
-        <h2 style="color:#fff;margin:12px 0 48px;font-size:2.4rem;">Numbers That Define Our Legacy</h2>
-        <div class="stats-bar" style="padding:0;">
-          <div class="stat-item">
-            <div class="stat-number" style="color:var(--secondary);" data-count="35" data-suffix="+">0</div>
-            <div class="stat-label" style="color:rgba(255,255,255,0.6);">Years of Excellence</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number" style="color:var(--secondary);" data-count="8500" data-suffix="+">0</div>
-            <div class="stat-label" style="color:rgba(255,255,255,0.6);">Stamps Authenticated</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number" style="color:var(--secondary);" data-count="42" data-suffix="">0</div>
-            <div class="stat-label" style="color:rgba(255,255,255,0.6);">Countries Sourced</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number" style="color:var(--secondary);" data-prefix="$" data-count="25" data-suffix="M+">0</div>
-            <div class="stat-label" style="color:rgba(255,255,255,0.6);">Collections Appraised</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- ==================== WHITE GLOVE SERVICES (Alternating) ==================== -->
   <section class="section">
@@ -447,7 +409,7 @@
       <!-- Service 1 -->
       <div class="section-split fade-in" style="margin-bottom:80px;">
         <div class="split-image">
-          <img src="assets/images/stamp-appraisal.jpg" alt="Private stamp appraisal" loading="lazy">
+          <img src="assets/images/service-appraisal-consultation.jpg" alt="Private stamp appraisal consultation" loading="lazy">
         </div>
         <div class="split-content">
           <span class="section-label">01</span>
@@ -460,7 +422,7 @@
       <!-- Service 2 (reversed) -->
       <div class="section-split fade-in" style="flex-direction:row-reverse;margin-bottom:80px;">
         <div class="split-image">
-          <img src="assets/images/stamp-grading.jpg" alt="Stamp grading process" loading="lazy">
+          <img src="assets/images/stamp-microscopic-grading.jpg" alt="Stamp grading process" loading="lazy">
         </div>
         <div class="split-content">
           <span class="section-label">02</span>
@@ -473,7 +435,7 @@
       <!-- Service 3 -->
       <div class="section-split fade-in">
         <div class="split-image">
-          <img src="assets/images/stamp-preservation.jpg" alt="Stamp preservation" loading="lazy">
+          <img src="assets/images/service-archival-preservation.jpg" alt="Stamp archival preservation" loading="lazy">
         </div>
         <div class="split-content">
           <span class="section-label">03</span>
@@ -527,33 +489,48 @@
         <p>Discover stamps grouped by the subjects that captivate collectors worldwide.</p>
       </div>
       <div class="grid-4 fade-in">
-        <div style="position:relative;border-radius:var(--border-radius-lg);overflow:hidden;height:300px;cursor:pointer;group">
-          <img src="assets/images/theme-flora-fauna.jpg" alt="Flora & Fauna stamps" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;" loading="lazy">
-          <div style="position:absolute;bottom:0;left:0;right:0;padding:24px;background:linear-gradient(transparent,rgba(0,0,0,0.85));">
-            <h4 style="color:#fff;margin-bottom:4px;">Flora & Fauna</h4>
-            <p style="color:rgba(255,255,255,0.7);font-size:0.85rem;">248 stamps</p>
+        <div class="theme-card" onclick="location.href='products.html?theme=flora-fauna'">
+          <img src="assets/images/theme-flora-fauna.jpg" alt="Flora &amp; Fauna stamps" class="theme-card-img" loading="lazy">
+          <div class="theme-card-overlay">
+            <div class="theme-card-content">
+              <h4 class="theme-card-title">Flora &amp; Fauna</h4>
+              <div class="theme-card-meta"><i class="fa-solid fa-stamp"></i><span>248 stamps</span></div>
+            </div>
           </div>
+          <div class="theme-card-badge"><i class="fa-solid fa-arrow-right"></i></div>
         </div>
-        <div style="position:relative;border-radius:var(--border-radius-lg);overflow:hidden;height:300px;cursor:pointer;">
-          <img src="assets/images/theme-space-aviation.jpg" alt="Space & Aviation stamps" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;" loading="lazy">
-          <div style="position:absolute;bottom:0;left:0;right:0;padding:24px;background:linear-gradient(transparent,rgba(0,0,0,0.85));">
-            <h4 style="color:#fff;margin-bottom:4px;">Space & Aviation</h4>
-            <p style="color:rgba(255,255,255,0.7);font-size:0.85rem;">183 stamps</p>
+
+        <div class="theme-card" onclick="location.href='products.html?theme=space-aviation'">
+          <img src="assets/images/theme-space-aviation.jpg" alt="Space &amp; Aviation stamps" class="theme-card-img" loading="lazy">
+          <div class="theme-card-overlay">
+            <div class="theme-card-content">
+              <h4 class="theme-card-title">Space &amp; Aviation</h4>
+              <div class="theme-card-meta"><i class="fa-solid fa-stamp"></i><span>183 stamps</span></div>
+            </div>
           </div>
+          <div class="theme-card-badge"><i class="fa-solid fa-arrow-right"></i></div>
         </div>
-        <div style="position:relative;border-radius:var(--border-radius-lg);overflow:hidden;height:300px;cursor:pointer;">
-          <img src="assets/images/theme-historic-figures.jpg" alt="Historic Figures stamps" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;" loading="lazy">
-          <div style="position:absolute;bottom:0;left:0;right:0;padding:24px;background:linear-gradient(transparent,rgba(0,0,0,0.85));">
-            <h4 style="color:#fff;margin-bottom:4px;">Historic Figures</h4>
-            <p style="color:rgba(255,255,255,0.7);font-size:0.85rem;">312 stamps</p>
+
+        <div class="theme-card" onclick="location.href='products.html?theme=historic-figures'">
+          <img src="assets/images/theme-historic-figures.jpg" alt="Historic Figures stamps" class="theme-card-img" loading="lazy">
+          <div class="theme-card-overlay">
+            <div class="theme-card-content">
+              <h4 class="theme-card-title">Historic Figures</h4>
+              <div class="theme-card-meta"><i class="fa-solid fa-stamp"></i><span>312 stamps</span></div>
+            </div>
           </div>
+          <div class="theme-card-badge"><i class="fa-solid fa-arrow-right"></i></div>
         </div>
-        <div style="position:relative;border-radius:var(--border-radius-lg);overflow:hidden;height:300px;cursor:pointer;">
-          <img src="assets/images/theme-art-architecture.jpg" alt="Art & Architecture stamps" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;" loading="lazy">
-          <div style="position:absolute;bottom:0;left:0;right:0;padding:24px;background:linear-gradient(transparent,rgba(0,0,0,0.85));">
-            <h4 style="color:#fff;margin-bottom:4px;">Art & Architecture</h4>
-            <p style="color:rgba(255,255,255,0.7);font-size:0.85rem;">195 stamps</p>
+
+        <div class="theme-card" onclick="location.href='products.html?theme=art-architecture'">
+          <img src="assets/images/theme-art-architecture.jpg" alt="Art &amp; Architecture stamps" class="theme-card-img" loading="lazy">
+          <div class="theme-card-overlay">
+            <div class="theme-card-content">
+              <h4 class="theme-card-title">Art &amp; Architecture</h4>
+              <div class="theme-card-meta"><i class="fa-solid fa-stamp"></i><span>195 stamps</span></div>
+            </div>
           </div>
+          <div class="theme-card-badge"><i class="fa-solid fa-arrow-right"></i></div>
         </div>
       </div>
     </div>
@@ -724,23 +701,83 @@
           </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- ==================== NEWSLETTER BANNER ==================== -->
-  <section style="background:linear-gradient(135deg,var(--primary-dark) 0%,var(--primary) 100%);padding:64px 0;">
-    <div class="container">
-      <div class="fade-in" style="display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;">
-        <div>
-          <h3 style="color:var(--secondary);font-size:1.6rem;margin-bottom:6px;">The Philatelist's Gazette</h3>
-          <p style="color:rgba(255,255,255,0.75);font-size:0.95rem;">Market insights, new arrivals, and exclusive member offers delivered weekly.</p>
+      <!-- ==================== UPCOMING EVENTS & SALON CTA VITRINE ==================== -->
+      <div class="events-grand-cta fade-in">
+        <div class="events-grand-backdrop" aria-hidden="true"></div>
+
+        <div class="events-grand-grid">
+          <!-- Left Column: Editorial & VIP Actions -->
+          <div class="events-grand-editorial">
+            <div class="events-grand-pill">
+              <i class="fa-solid fa-crown"></i>
+              <span>VIP Access &bull; 2027 Season Itinerary</span>
+            </div>
+
+            <h2 class="events-grand-title">
+              Join the World's Foremost <span class="highlight">Philatelic Gatherings</span>
+            </h2>
+
+            <p class="events-grand-desc">
+              From private salon viewings at our London showroom to international premier auction floors in Geneva and Tokyo, PhilaVault offers members reserved floor access, advance catalogue previews, and one-on-one curatorial consultations.
+            </p>
+
+            <!-- 3 Value Highlights -->
+            <div class="events-grand-perks">
+              <div class="events-grand-perk">
+                <i class="fa-solid fa-ticket"></i>
+                <span>Complimentary Entry</span>
+              </div>
+              <div class="events-grand-perk">
+                <i class="fa-solid fa-champagne-glasses"></i>
+                <span>Private Reception Access</span>
+              </div>
+              <div class="events-grand-perk">
+                <i class="fa-solid fa-shield-halved"></i>
+                <span>Certified Bidding</span>
+              </div>
+            </div>
+
+            <!-- Dual High-Contrast Actions -->
+            <div class="events-grand-actions">
+              <a href="contact.html" class="btn btn-gold">
+                <i class="fa-solid fa-calendar-check"></i>
+                <span>Reserve 2027 Pass</span>
+              </a>
+              <a href="contact.html" class="btn events-vip-btn">
+                <i class="fa-solid fa-envelope-open-text"></i>
+                <span>Request VIP Invitation</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Column: Visual Vitrine Frame -->
+          <div class="events-grand-visual-wrap">
+            <div class="events-grand-frame">
+              <img src="assets/images/home2-salon-gathering.jpg" alt="PhilaVault international grand archival salon" class="events-grand-img" loading="lazy">
+              <div class="events-grand-frame-sheen" aria-hidden="true"></div>
+
+              <!-- Floating Live Badge Top -->
+              <div class="events-floating-badge top-badge">
+                <div class="events-badge-dot"></div>
+                <span>Geneva &bull; London &bull; Tokyo &bull; New York</span>
+              </div>
+
+              <!-- Floating Bottom Experience Card -->
+              <div class="events-stat-card">
+                <div class="events-stat-icon">
+                  <i class="fa-solid fa-landmark"></i>
+                </div>
+                <div class="events-stat-text">
+                  <strong>Private International Salon Circuit</strong>
+                  <span>Reserved Floor Seats &bull; Curatorial Previews</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <form style="display:flex;gap:12px;flex-wrap:wrap;flex:1;max-width:480px;justify-content:flex-end;" onsubmit="event.preventDefault();">
-          <input type="email" class="form-control" placeholder="Your email address" style="flex:1;min-width:220px;background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:#fff;">
-          <button type="submit" class="btn btn-gold">Subscribe</button>
-        </form>
       </div>
-      <p style="color:rgba(255,255,255,0.5);font-size:0.82rem;margin-top:16px;text-align:center;">Join 15,000+ collectors worldwide. Unsubscribe anytime.</p>
+
     </div>
   </section>
 
