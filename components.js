@@ -30,6 +30,7 @@ function injectNav() {
   const navLinks = [
     { href: 'index.html', label: 'Home', pages: ['index.html', ''] },
     { href: 'home2.html', label: 'Home 2', pages: ['home2.html'] },
+    { href: 'about.html', label: 'About Us', pages: ['about.html'] },
     { href: 'products.html', label: 'Products', pages: ['products.html'] },
     { href: 'appraisal.html', label: 'Appraisal', pages: ['appraisal.html'] },
     { href: 'sell.html', label: 'Sell Collection', pages: ['sell.html'] },
@@ -61,7 +62,7 @@ function injectNav() {
           <button class="icon-btn" onclick="toggleRTL()" aria-label="Toggle RTL" id="rtlToggle" title="Toggle Direction">
             <span class="dir-label" style="font-size:0.6875rem;font-weight:600;">${isRTL ? 'RTL' : 'LTR'}</span>
           </button>
-          <a href="signup.html" class="btn btn-primary btn-sm" style="display:inline-flex">Sign Up</a>
+          <a href="signup.html" class="btn btn-primary btn-sm header-signup-btn">Sign Up</a>
           <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu(event)" aria-label="Toggle menu">
             <span class="mobile-menu-icon">${ICONS.menu}</span>
           </button>
@@ -121,11 +122,12 @@ function injectFooter() {
             <ul class="footer-links">
               <li><a href="index.html">Home</a></li>
               <li><a href="home2.html">Home 2 — Premium</a></li>
+              <li><a href="about.html">About Us</a></li>
               <li><a href="products.html">Products</a></li>
               <li><a href="appraisal.html">Appraisal Services</a></li>
-              <li><a href="sell.html">Sell Your Collection</a></li>
+              <li><a href="sell.html">Sell Collection</a></li>
               <li><a href="pricing.html">Pricing</a></li>
-              <li><a href="contact.html">Contact</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
             </ul>
           </div>
 
@@ -133,11 +135,9 @@ function injectFooter() {
           <div class="footer-col">
             <h4 class="footer-col-title">Resources</h4>
             <ul class="footer-links">
-              <li><a href="coming-soon.html">Stamp Catalog</a></li>
-              <li><a href="coming-soon.html">Collector's Blog</a></li>
-              <li><a href="coming-soon.html">Grading Guide</a></li>
-              <li><a href="coming-soon.html">Stamp Glossary</a></li>
-              <li><a href="coming-soon.html">Community Forum</a></li>
+              <li><a href="coming-soon.html">Dashboard</a></li>
+              <li><a href="coming-soon.html">Coming Soon</a></li>
+              <li><a href="404.html">404 Page</a></li>
               <li><a href="login.html">Sign In</a></li>
               <li><a href="signup.html">Sign Up</a></li>
             </ul>
@@ -930,6 +930,97 @@ function initHeroSlider() {
   }
 }
 
+// ---- Appraisal Calculator & Certificate Anatomy ----
+function initAppraisalCalculator() {
+  const calcContainer = document.getElementById('appraisalCalculatorSection');
+  if (!calcContainer) return;
+
+  const feeDisplay = document.getElementById('calcFeeDisplay');
+  const turnaroundDisplay = document.getElementById('calcTurnaroundDisplay');
+
+  function calculate() {
+    const activeScope = calcContainer.querySelector('#calcScopeGroup .calc-opt-btn.active');
+    const activeEra = calcContainer.querySelector('#calcEraGroup .calc-opt-btn.active');
+
+    const base = activeScope ? parseFloat(activeScope.getAttribute('data-base') || 25) : 25;
+    const days = activeScope ? (activeScope.getAttribute('data-days') || '2 - 3 Business Days') : '2 - 3 Business Days';
+    const mult = activeEra ? parseFloat(activeEra.getAttribute('data-mult') || 1) : 1;
+
+    const total = Math.round(base * mult);
+    if (feeDisplay) feeDisplay.textContent = total;
+    if (turnaroundDisplay) turnaroundDisplay.textContent = days;
+  }
+
+  calcContainer.querySelectorAll('.calc-btn-group').forEach(group => {
+    group.querySelectorAll('.calc-opt-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        group.querySelectorAll('.calc-opt-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        calculate();
+      });
+    });
+  });
+
+  calculate();
+}
+
+function initCertAnatomy() {
+  const certSection = document.getElementById('certificateAnatomySection');
+  if (!certSection) return;
+
+  const pins = certSection.querySelectorAll('.cert-hotspot-pin');
+  const items = certSection.querySelectorAll('.cert-feature-item');
+
+  function setActive(targetId) {
+    pins.forEach(pin => {
+      if (pin.getAttribute('data-target') === targetId) {
+        pin.classList.add('active');
+      } else {
+        pin.classList.remove('active');
+      }
+    });
+
+    items.forEach(item => {
+      if (item.id === targetId) {
+        item.classList.add('active');
+      } else {
+        item.classList.remove('active');
+      }
+    });
+  }
+
+  pins.forEach(pin => {
+    pin.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = this.getAttribute('data-target');
+      if (target) setActive(target);
+    });
+  });
+
+  items.forEach(item => {
+    item.addEventListener('click', function() {
+      setActive(this.id);
+    });
+  });
+}
+
+// ---- Contact Form Query Pre-fill ----
+function initContactInquiry() {
+  const params = new URLSearchParams(window.location.search);
+  const inquiry = params.get('inquiry');
+  if (!inquiry) return;
+
+  const subjectSelect = document.getElementById('contactSubject');
+  const messageArea = document.getElementById('contactMessage');
+
+  if (subjectSelect) {
+    subjectSelect.value = 'purchase';
+  }
+  if (messageArea) {
+    messageArea.value = `Hello PhilaVault Team, I would like to inquire about acquiring "${inquiry}". Please provide provenance details, condition reports, and acquisition terms.`;
+  }
+}
+
 // ---- Initialization ----
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
@@ -956,4 +1047,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initHeroSlider();
   initPhilatelicParticles();
   initHome2PhilatelyAnimation();
+  initAppraisalCalculator();
+  initCertAnatomy();
+  initContactInquiry();
 });

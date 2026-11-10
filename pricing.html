@@ -14,7 +14,7 @@
 <body>
 
   <!-- Page Hero -->
-  <section class="page-hero">
+  <section class="page-hero page-hero-pricing">
     <div class="container">
       <ul class="breadcrumb-list">
         <li><a href="index.html">Home</a></li>
@@ -40,12 +40,12 @@
           <div class="plan-price">$29 <span>/month</span></div>
           <div class="plan-billing">Billed annually at $348</div>
           <ul class="plan-features">
-            <li><i class="fa-solid fa-check" style="color:var(--primary);margin-right:8px;"></i> 10 appraisals per year</li>
-            <li><i class="fa-solid fa-check" style="color:var(--primary);margin-right:8px;"></i> Basic catalogue access</li>
-            <li><i class="fa-solid fa-check" style="color:var(--primary);margin-right:8px;"></i> Weekly newsletter</li>
-            <li><i class="fa-solid fa-check" style="color:var(--primary);margin-right:8px;"></i> 5% store discount</li>
-            <li><i class="fa-solid fa-check" style="color:var(--primary);margin-right:8px;"></i> Community forum access</li>
-            <li><i class="fa-solid fa-check" style="color:var(--primary);margin-right:8px;"></i> Standard insured shipping</li>
+            <li><i class="fa-solid fa-check"></i> 10 appraisals per year</li>
+            <li><i class="fa-solid fa-check"></i> Basic catalogue access</li>
+            <li><i class="fa-solid fa-check"></i> Weekly newsletter</li>
+            <li><i class="fa-solid fa-check"></i> 5% store discount</li>
+            <li><i class="fa-solid fa-check"></i> Community forum access</li>
+            <li><i class="fa-solid fa-check"></i> Standard insured shipping</li>
           </ul>
           <a href="signup.html" class="btn btn-secondary">Get Started</a>
         </div>
@@ -56,12 +56,12 @@
           <div class="plan-price">$79 <span>/month</span></div>
           <div class="plan-billing">Billed annually at $948</div>
           <ul class="plan-features">
-            <li><i class="fa-solid fa-check" style="color:var(--primary);margin-right:8px;"></i> Unlimited appraisals</li>
-            <li><i class="fa-solid fa-check" style="color:var(--primary);margin-right:8px;"></i> Full catalogue access</li>
-            <li><i class="fa-solid fa-check" style="color:var(--primary);margin-right:8px;"></i> Priority shipping</li>
-            <li><i class="fa-solid fa-check" style="color:var(--primary);margin-right:8px;"></i> 15% store discount</li>
-            <li><i class="fa-solid fa-check" style="color:var(--primary);margin-right:8px;"></i> Monthly rare finds preview</li>
-            <li><i class="fa-solid fa-check" style="color:var(--primary);margin-right:8px;"></i> Interest-free payment plans</li>
+            <li><i class="fa-solid fa-check"></i> Unlimited appraisals</li>
+            <li><i class="fa-solid fa-check"></i> Full catalogue access</li>
+            <li><i class="fa-solid fa-check"></i> Priority shipping</li>
+            <li><i class="fa-solid fa-check"></i> 15% store discount</li>
+            <li><i class="fa-solid fa-check"></i> Monthly rare finds preview</li>
+            <li><i class="fa-solid fa-check"></i> Interest-free payment plans</li>
           </ul>
           <a href="signup.html" class="btn btn-primary">Get Started</a>
         </div>
@@ -71,12 +71,12 @@
           <div class="plan-price">$199 <span>/month</span></div>
           <div class="plan-billing">Billed annually at $2,388</div>
           <ul class="plan-features">
-            <li><i class="fa-solid fa-check" style="color:var(--primary);margin-right:8px;"></i> Everything in Connoisseur</li>
-            <li><i class="fa-solid fa-check" style="color:var(--primary);margin-right:8px;"></i> Private viewings</li>
-            <li><i class="fa-solid fa-check" style="color:var(--primary);margin-right:8px;"></i> Estate services included</li>
-            <li><i class="fa-solid fa-check" style="color:var(--primary);margin-right:8px;"></i> Dedicated personal advisor</li>
-            <li><i class="fa-solid fa-check" style="color:var(--primary);margin-right:8px;"></i> 25% store discount</li>
-            <li><i class="fa-solid fa-check" style="color:var(--primary);margin-right:8px;"></i> Investment advisory reports</li>
+            <li><i class="fa-solid fa-check"></i> Everything in Connoisseur</li>
+            <li><i class="fa-solid fa-check"></i> Private viewings</li>
+            <li><i class="fa-solid fa-check"></i> Estate services included</li>
+            <li><i class="fa-solid fa-check"></i> Dedicated personal advisor</li>
+            <li><i class="fa-solid fa-check"></i> 25% store discount</li>
+            <li><i class="fa-solid fa-check"></i> Investment advisory reports</li>
           </ul>
           <a href="signup.html" class="btn btn-secondary">Get Started</a>
         </div>
@@ -91,25 +91,65 @@
         <span class="section-label">Compare Plans</span>
         <h2>Feature Comparison</h2>
       </div>
-      <div class="fade-in" style="overflow-x:auto;">
-        <table style="width:100%;border-collapse:collapse;background:var(--card-bg);border:1px solid var(--border-color);border-radius:var(--border-radius-lg);overflow:hidden;">
+      <div class="comparison-table-wrapper fade-in">
+        <table class="comparison-table">
           <thead>
-            <tr style="background:var(--bg-secondary);">
-              <th style="padding:16px 20px;text-align:left;font-weight:600;border-bottom:1px solid var(--border-color);">Feature</th>
-              <th style="padding:16px 20px;text-align:center;font-weight:600;border-bottom:1px solid var(--border-color);">Enthusiast</th>
-              <th style="padding:16px 20px;text-align:center;font-weight:600;border-bottom:1px solid var(--border-color);color:var(--primary);">Connoisseur</th>
-              <th style="padding:16px 20px;text-align:center;font-weight:600;border-bottom:1px solid var(--border-color);">Patron</th>
+            <tr>
+              <th class="col-feature">Feature</th>
+              <th class="col-plan">Enthusiast</th>
+              <th class="col-plan col-highlight">Connoisseur</th>
+              <th class="col-plan">Patron</th>
             </tr>
           </thead>
-          <tbody style="font-size:0.92rem;">
-            <tr><td style="padding:14px 20px;border-bottom:1px solid var(--border-color);">Annual Appraisals</td><td style="padding:14px 20px;text-align:center;border-bottom:1px solid var(--border-color);">10</td><td style="padding:14px 20px;text-align:center;border-bottom:1px solid var(--border-color);">Unlimited</td><td style="padding:14px 20px;text-align:center;border-bottom:1px solid var(--border-color);">Unlimited</td></tr>
-            <tr><td style="padding:14px 20px;border-bottom:1px solid var(--border-color);">Catalogue Access</td><td style="padding:14px 20px;text-align:center;border-bottom:1px solid var(--border-color);">Basic</td><td style="padding:14px 20px;text-align:center;border-bottom:1px solid var(--border-color);">Full</td><td style="padding:14px 20px;text-align:center;border-bottom:1px solid var(--border-color);">Full + Archive</td></tr>
-            <tr><td style="padding:14px 20px;border-bottom:1px solid var(--border-color);">Store Discount</td><td style="padding:14px 20px;text-align:center;border-bottom:1px solid var(--border-color);">5%</td><td style="padding:14px 20px;text-align:center;border-bottom:1px solid var(--border-color);">15%</td><td style="padding:14px 20px;text-align:center;border-bottom:1px solid var(--border-color);">25%</td></tr>
-            <tr><td style="padding:14px 20px;border-bottom:1px solid var(--border-color);">Priority Shipping</td><td style="padding:14px 20px;text-align:center;border-bottom:1px solid var(--border-color);">—</td><td style="padding:14px 20px;text-align:center;border-bottom:1px solid var(--border-color);">✓</td><td style="padding:14px 20px;text-align:center;border-bottom:1px solid var(--border-color);">✓</td></tr>
-            <tr><td style="padding:14px 20px;border-bottom:1px solid var(--border-color);">Rare Finds Preview</td><td style="padding:14px 20px;text-align:center;border-bottom:1px solid var(--border-color);">—</td><td style="padding:14px 20px;text-align:center;border-bottom:1px solid var(--border-color);">✓</td><td style="padding:14px 20px;text-align:center;border-bottom:1px solid var(--border-color);">✓</td></tr>
-            <tr><td style="padding:14px 20px;border-bottom:1px solid var(--border-color);">Private Viewings</td><td style="padding:14px 20px;text-align:center;border-bottom:1px solid var(--border-color);">—</td><td style="padding:14px 20px;text-align:center;border-bottom:1px solid var(--border-color);">—</td><td style="padding:14px 20px;text-align:center;border-bottom:1px solid var(--border-color);">✓</td></tr>
-            <tr><td style="padding:14px 20px;border-bottom:1px solid var(--border-color);">Dedicated Advisor</td><td style="padding:14px 20px;text-align:center;border-bottom:1px solid var(--border-color);">—</td><td style="padding:14px 20px;text-align:center;border-bottom:1px solid var(--border-color);">—</td><td style="padding:14px 20px;text-align:center;border-bottom:1px solid var(--border-color);">✓</td></tr>
-            <tr><td style="padding:14px 20px;">Investment Reports</td><td style="padding:14px 20px;text-align:center;">—</td><td style="padding:14px 20px;text-align:center;">—</td><td style="padding:14px 20px;text-align:center;">✓</td></tr>
+          <tbody>
+            <tr>
+              <td class="col-feature">Annual Appraisals</td>
+              <td class="col-plan">10</td>
+              <td class="col-plan col-highlight">Unlimited</td>
+              <td class="col-plan">Unlimited</td>
+            </tr>
+            <tr>
+              <td class="col-feature">Catalogue Access</td>
+              <td class="col-plan">Basic</td>
+              <td class="col-plan col-highlight">Full</td>
+              <td class="col-plan">Full +<span class="mobile-only-break"><br></span>Archive</td>
+            </tr>
+            <tr>
+              <td class="col-feature">Store Discount</td>
+              <td class="col-plan">5%</td>
+              <td class="col-plan col-highlight">15%</td>
+              <td class="col-plan">25%</td>
+            </tr>
+            <tr>
+              <td class="col-feature">Priority Shipping</td>
+              <td class="col-plan"><span class="dash">—</span></td>
+              <td class="col-plan col-highlight"><i class="fa-solid fa-check check-gold"></i></td>
+              <td class="col-plan"><i class="fa-solid fa-check check-gold"></i></td>
+            </tr>
+            <tr>
+              <td class="col-feature">Rare Finds Preview</td>
+              <td class="col-plan"><span class="dash">—</span></td>
+              <td class="col-plan col-highlight"><i class="fa-solid fa-check check-gold"></i></td>
+              <td class="col-plan"><i class="fa-solid fa-check check-gold"></i></td>
+            </tr>
+            <tr>
+              <td class="col-feature">Private Viewings</td>
+              <td class="col-plan"><span class="dash">—</span></td>
+              <td class="col-plan col-highlight"><span class="dash">—</span></td>
+              <td class="col-plan"><i class="fa-solid fa-check check-gold"></i></td>
+            </tr>
+            <tr>
+              <td class="col-feature">Dedicated Advisor</td>
+              <td class="col-plan"><span class="dash">—</span></td>
+              <td class="col-plan col-highlight"><span class="dash">—</span></td>
+              <td class="col-plan"><i class="fa-solid fa-check check-gold"></i></td>
+            </tr>
+            <tr>
+              <td class="col-feature">Investment Reports</td>
+              <td class="col-plan"><span class="dash">—</span></td>
+              <td class="col-plan col-highlight"><span class="dash">—</span></td>
+              <td class="col-plan"><i class="fa-solid fa-check check-gold"></i></td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -207,7 +247,7 @@
           <!-- Left Column: Archival Visual Vitrine Frame with Leather Stamp Album -->
           <div class="club-visual-wrap">
             <div class="club-vitrine-frame">
-              <img src="assets/images/stamp-imperial-album-bundle.jpg" alt="Deluxe gold-embossed Royal Stamp Collection album with classic Victorian issues" class="club-img" loading="lazy">
+              <img src="assets/images/club-vip-vitrine-collection.jpg" alt="Deluxe gold-embossed Royal Stamp Collection presentation vitrine" class="club-img" loading="lazy">
               <div class="club-frame-sheen" aria-hidden="true"></div>
 
               <!-- Floating Live Badge Top -->

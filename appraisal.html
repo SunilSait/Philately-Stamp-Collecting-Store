@@ -14,7 +14,7 @@
 <body>
 
   <!-- Page Hero -->
-  <section class="page-hero">
+  <section class="page-hero page-hero-appraisal">
     <div class="container">
       <ul class="breadcrumb-list">
         <li><a href="index.html">Home</a></li>
@@ -80,6 +80,110 @@
           <p style="font-family:var(--font-heading);font-size:1.8rem;font-weight:500;color:var(--primary);">Custom</p>
           <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:20px;">tailored to your needs</p>
           <a href="contact.html" class="btn btn-secondary" style="width:100%;">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== NEW SECTION 1: INTERACTIVE VALUATION & FEE ESTIMATOR ==================== -->
+  <section class="section appraisal-calc-section" id="appraisalCalculatorSection">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-label"><i class="fa-solid fa-calculator"></i> Transparent Estimation</span>
+        <h2>Interactive Valuation &amp; <span class="highlight">Fee Estimator</span></h2>
+        <p>Configure your collection scope and historical era to receive instant turnaround times, transparent fee estimates, and recommended valuation pathways.</p>
+      </div>
+
+      <div class="calc-card-container fade-in">
+        <div class="calc-config-col">
+          <!-- Step 1: Scope -->
+          <div class="calc-group">
+            <label class="calc-label"><span class="calc-step-badge">1</span> Select Collection Scope</label>
+            <div class="calc-btn-group" id="calcScopeGroup">
+              <button type="button" class="calc-opt-btn active" data-scope="single" data-base="25" data-days="2-3 Days">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <span>Single Stamp</span>
+                <small>Individual rarity</small>
+              </button>
+              <button type="button" class="calc-opt-btn" data-scope="album" data-base="150" data-days="3-5 Days">
+                <i class="fa-solid fa-book-bookmark"></i>
+                <span>Curated Album</span>
+                <small>50 – 200 specimens</small>
+              </button>
+              <button type="button" class="calc-opt-btn" data-scope="collection" data-base="350" data-days="5-7 Days">
+                <i class="fa-solid fa-boxes-stacked"></i>
+                <span>Major Holding</span>
+                <small>200 – 1,000 items</small>
+              </button>
+              <button type="button" class="calc-opt-btn" data-scope="estate" data-base="750" data-days="7-10 Days">
+                <i class="fa-solid fa-building-columns"></i>
+                <span>Estate Archive</span>
+                <small>Sovereign / Inheritance</small>
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 2: Era -->
+          <div class="calc-group">
+            <label class="calc-label"><span class="calc-step-badge">2</span> Primary Historical Era</label>
+            <div class="calc-btn-group" id="calcEraGroup">
+              <button type="button" class="calc-opt-btn active" data-era="victorian" data-mult="1.2">
+                <i class="fa-solid fa-crown"></i>
+                <span>Victorian &amp; Imperial</span>
+                <small>Pre-1901 Classics</small>
+              </button>
+              <button type="button" class="calc-opt-btn" data-era="early20" data-mult="1.1">
+                <i class="fa-solid fa-plane-up"></i>
+                <span>Early 20th Century</span>
+                <small>1901 – 1945 Airmail</small>
+              </button>
+              <button type="button" class="calc-opt-btn" data-era="modern" data-mult="1.0">
+                <i class="fa-solid fa-palette"></i>
+                <span>Modern Commemoratives</span>
+                <small>1946 – Present</small>
+              </button>
+              <button type="button" class="calc-opt-btn" data-era="mixed" data-mult="1.15">
+                <i class="fa-solid fa-globe"></i>
+                <span>Mixed Worldwide</span>
+                <small>Global Diversity</small>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Output Summary Card -->
+        <div class="calc-summary-col">
+          <div class="calc-result-box">
+            <div class="result-badge">
+              <span class="live-dot"></span>
+              <span>CALCULATED ESTIMATE</span>
+            </div>
+            <div class="result-price-wrap">
+              <span class="price-currency">£</span>
+              <span class="price-amount" id="calcFeeDisplay">30</span>
+              <span class="price-suffix">Estimated Base Fee</span>
+            </div>
+            <div class="result-turnaround">
+              <i class="fa-regular fa-clock"></i>
+              <span>Turnaround: <strong id="calcTurnaroundDisplay">2 - 3 Business Days</strong></span>
+            </div>
+
+            <div class="result-divider"></div>
+
+            <h4 class="result-inc-title">Included in Your Valuation:</h4>
+            <ul class="result-checklist">
+              <li><i class="fa-solid fa-circle-check"></i> <span>High-magnification watermark &amp; perforation audit</span></li>
+              <li><i class="fa-solid fa-circle-check"></i> <span>Recent 10-year global auction realization comparables</span></li>
+              <li><i class="fa-solid fa-circle-check"></i> <span>Archival Certificate with cryptographic registry verification</span></li>
+              <li><i class="fa-solid fa-circle-check"></i> <span>Senior FRPSL curatorial review &amp; condition grade</span></li>
+            </ul>
+
+            <a href="contact.html?subject=Appraisal+Booking" class="btn btn-primary btn-lg calc-book-btn">
+              <i class="fa-solid fa-calendar-check"></i>
+              <span>Book This Valuation Pathway</span>
+            </a>
+            <p class="calc-footnote">*Final fees may adjust based on extraordinary lot volume. Completely credited towards any future PhilaVault consignment.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -151,6 +255,152 @@
         </div>
         <div class="split-image">
           <img src="assets/images/appraisal-grading-microscope.jpg" alt="Philatelic microscopic grading station" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== NEW SECTION 2: ANATOMY OF AN OFFICIAL ARCHIVAL CERTIFICATE ==================== -->
+  <section class="section section-alt cert-anatomy-section" id="certificateAnatomySection">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-label"><i class="fa-solid fa-certificate"></i> Legal &amp; Archival Standard</span>
+        <h2>Anatomy of a <span class="highlight">PhilaVault Certificate</span></h2>
+        <p>Every certified valuation report is an archival legal document recognized by Lloyd's of London underwriters, major international auction houses, and probate courts.</p>
+      </div>
+
+      <div class="cert-anatomy-grid fade-in">
+        <!-- Left: Certificate Visual Model -->
+        <div class="cert-mockup-wrapper">
+          <div class="cert-mockup-card">
+            <!-- Guilloche Security Border (Point 1) -->
+            <button type="button" class="cert-hotspot-pin pin-1 active" data-target="item-1" aria-label="Security Border">1</button>
+            
+            <div class="cert-mockup-inner">
+              <div class="cert-mockup-header">
+                <div class="cert-mockup-crest">
+                  <i class="fa-solid fa-stamp"></i>
+                </div>
+                <h3>PHILAVAULT CURATORIAL ARCHIVES</h3>
+                <p>CERTIFICATE OF AUTHENTICITY &bull; RPSL &amp; APS ACCREDITED</p>
+                <!-- QR & Hash (Point 3) -->
+                <button type="button" class="cert-hotspot-pin pin-3" data-target="item-3" aria-label="Registry Hash">3</button>
+              </div>
+
+              <div class="cert-mockup-specimen">
+                <div class="specimen-frame">
+                  <i class="fa-solid fa-award specimen-gold-badge"></i>
+                  <!-- Spectral Scan (Point 4) -->
+                  <button type="button" class="cert-hotspot-pin pin-4" data-target="item-4" aria-label="Micro-Spectroscopy">4</button>
+                  <div class="specimen-plate-info">
+                    <span class="specimen-title">1840 GREAT BRITAIN 1d BLACK</span>
+                    <span class="specimen-sub">Plate 1b &bull; Position 'T-K' &bull; Four Wide Margins</span>
+                  </div>
+                </div>
+                <!-- Condition Score (Point 5) -->
+                <button type="button" class="cert-hotspot-pin pin-5" data-target="item-5" aria-label="Condition Metric">5</button>
+                <div class="specimen-score-badge">
+                  <span class="score-num">95</span>
+                  <span class="score-label">SUPERB</span>
+                </div>
+              </div>
+
+              <div class="cert-mockup-details">
+                <div class="detail-row">
+                  <span>Certificate ID:</span>
+                  <strong>PV-2026-LON-88941</strong>
+                </div>
+                <div class="detail-row">
+                  <span>Paper Density:</span>
+                  <strong>Watermark Small Crown (Verified)</strong>
+                </div>
+                <div class="detail-row">
+                  <span>Perforation:</span>
+                  <strong>Imperforate (Intact 4 Margins)</strong>
+                </div>
+                <div class="detail-row">
+                  <span>Valuation Benchmark:</span>
+                  <strong>£18,500 GBP (Insurance Baseline)</strong>
+                </div>
+              </div>
+
+              <div class="cert-mockup-footer">
+                <div class="cert-signatory">
+                  <div class="sig-line"></div>
+                  <span>Senior Curator (FRPSL)</span>
+                </div>
+                <!-- Hologram Seal (Point 2) -->
+                <div class="cert-mockup-seal">
+                  <i class="fa-solid fa-crown"></i>
+                  <span>OFFICIAL SEAL</span>
+                  <button type="button" class="cert-hotspot-pin pin-2" data-target="item-2" aria-label="Holographic Seal">2</button>
+                </div>
+                <!-- Endorsement (Point 6) -->
+                <div class="cert-signatory">
+                  <div class="sig-line"></div>
+                  <span>Council Fellow (APS)</span>
+                  <button type="button" class="cert-hotspot-pin pin-6" data-target="item-6" aria-label="Curatorial Endorsement">6</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Interactive Security Breakdown -->
+        <div class="cert-features-list">
+          <!-- Item 1 -->
+          <div class="cert-feature-item active" id="item-1">
+            <div class="feature-num">01</div>
+            <div class="feature-content">
+              <h4>Anti-Counterfeiting Guilloche Border</h4>
+              <p>Printed on 300gsm acid-free 100% cotton archival stock with continuous-line geometric guilloche patterns that distort upon scanning or unauthorized reproduction.</p>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="cert-feature-item" id="item-2">
+            <div class="feature-num">02</div>
+            <div class="feature-content">
+              <h4>Tamper-Evident Holographic Foil Crest</h4>
+              <p>Micro-embossed multi-depth 3D optical holographic medallion with self-voiding destructible adhesive, preventing physical removal or badge substitution.</p>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="cert-feature-item" id="item-3">
+            <div class="feature-num">03</div>
+            <div class="feature-content">
+              <h4>Cryptographic Registry Hash &amp; QR</h4>
+              <p>Every certificate is permanently anchored with an SHA-256 digital fingerprint in our public registry, enabling instantaneous smartphone verification by insurers.</p>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="cert-feature-item" id="item-4">
+            <div class="feature-num">04</div>
+            <div class="feature-content">
+              <h4>1200 DPI Micro-Spectroscopy Plate</h4>
+              <p>High-resolution micro-photographic records documenting paper fiber structure, cancelation ink pigment, and edge tooth boundaries under 40x magnification.</p>
+            </div>
+          </div>
+
+          <!-- Item 5 -->
+          <div class="cert-feature-item" id="item-5">
+            <div class="feature-num">05</div>
+            <div class="feature-content">
+              <h4>RPSL &amp; APS Aligned Condition Metric</h4>
+              <p>Exhaustive mathematical condition breakdown quantifying centering ratios, gum purity percentage, flawlessness score, and historical provenance lineage.</p>
+            </div>
+          </div>
+
+          <!-- Item 6 -->
+          <div class="cert-feature-item" id="item-6">
+            <div class="feature-num">06</div>
+            <div class="feature-content">
+              <h4>Dual-Signatory Fellow Endorsement</h4>
+              <p>Every certificate requires the countersignature of two accredited Fellows of the Royal Philatelic Society London (FRPSL), accompanied by embossed corporate seals.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

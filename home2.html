@@ -57,50 +57,85 @@
 
     .v-timeline {
       position: relative;
-      padding-left: 48px;
+      padding-left: 56px;
       max-width: 700px;
       margin: 0 auto;
-    }
-    .v-timeline::before {
-      content: '';
-      position: absolute;
-      left: 18px;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: var(--border-color);
     }
     .v-timeline-item {
       position: relative;
       padding-bottom: 48px;
     }
-    .v-timeline-item:last-child { padding-bottom: 0; }
+    .v-timeline-item:last-child {
+      padding-bottom: 0;
+    }
+    /* Connecting vertical line - starts at center of dot 1, ends at center of last dot */
+    .v-timeline-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: -38px;
+      top: 8px;
+      bottom: -8px;
+      width: 2px;
+      background: var(--border-color);
+      transform: translateX(-50%);
+      z-index: 1;
+    }
+    /* Timeline Node Dot - perfectly aligned and centered with the vertical track */
     .v-timeline-item::before {
       content: '';
       position: absolute;
-      left: -34px;
-      top: 6px;
-      width: 14px;
-      height: 14px;
+      left: -38px;
+      top: 0;
+      width: 16px;
+      height: 16px;
       border-radius: 50%;
       background: var(--primary);
-      border: 3px solid var(--bg-primary);
-      z-index: 1;
+      border: 3px solid var(--bg-secondary);
+      box-shadow: 0 0 0 2px var(--secondary);
+      transform: translateX(-50%);
+      z-index: 2;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .v-timeline-item:hover::before {
+      transform: translateX(-50%) scale(1.2);
+      box-shadow: 0 0 0 3px var(--secondary), 0 0 10px rgba(184, 134, 11, 0.45);
     }
     .v-timeline-item .step-num {
+      display: inline-block;
+      line-height: 1.2;
       font-family: var(--font-heading);
       font-size: 0.8rem;
       font-weight: 600;
       color: var(--secondary);
       text-transform: uppercase;
       letter-spacing: 2px;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
     .v-timeline-item h3 { margin-bottom: 8px; }
     .v-timeline-item p { color: var(--text-secondary); font-size: 0.95rem; }
 
     [data-theme="dark"] .v-timeline-item::before {
-      border-color: var(--bg-primary);
+      border-color: var(--bg-secondary);
+      box-shadow: 0 0 0 2px var(--secondary);
+    }
+
+    /* RTL Support for Vertical Timeline */
+    [dir="rtl"] .v-timeline {
+      padding-left: 0;
+      padding-right: 56px;
+    }
+    [dir="rtl"] .v-timeline-item:not(:last-child)::after {
+      left: auto;
+      right: -38px;
+      transform: translateX(50%);
+    }
+    [dir="rtl"] .v-timeline-item::before {
+      left: auto;
+      right: -38px;
+      transform: translateX(50%);
+    }
+    [dir="rtl"] .v-timeline-item:hover::before {
+      transform: translateX(50%) scale(1.2);
     }
 
     .event-date-badge {
@@ -372,7 +407,7 @@
           </div>
         </div>
         <div style="border-radius:var(--border-radius-lg);overflow:hidden;position:relative;">
-          <img src="assets/images/stamp-history.jpg" alt="Stamp history evolution" style="width:100%;height:100%;object-fit:cover;min-height:180px;">
+          <img src="assets/images/home2-history-timeline-scroll.jpg" alt="Stamp history evolution" style="width:100%;height:100%;object-fit:cover;min-height:180px;">
           <div style="position:absolute;bottom:0;left:0;right:0;padding:20px;background:linear-gradient(transparent,rgba(0,0,0,0.8));">
             <span style="display:inline-block;background:var(--primary);color:#fff;padding:4px 12px;border-radius:100px;font-size:0.75rem;font-weight:600;margin-bottom:6px;">RARE</span>
             <h4 style="color:#fff;font-size:1rem;">Evolution of Postal History</h4>
@@ -380,13 +415,13 @@
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
           <div style="border-radius:var(--border-radius-lg);overflow:hidden;position:relative;">
-            <img src="assets/images/stamp-feature-3.jpg" alt="Maritime stamps" style="width:100%;height:100%;object-fit:cover;min-height:160px;">
+            <img src="assets/images/theme-maritime-ocean-liners.jpg" alt="Maritime stamps" style="width:100%;height:100%;object-fit:cover;min-height:160px;">
             <div style="position:absolute;bottom:0;left:0;right:0;padding:16px;background:linear-gradient(transparent,rgba(0,0,0,0.8));">
               <h4 style="color:#fff;font-size:0.9rem;">Maritime Series</h4>
             </div>
           </div>
           <div style="border-radius:var(--border-radius-lg);overflow:hidden;position:relative;">
-            <img src="assets/images/stamp-feature-4.jpg" alt="Olympic stamps" style="width:100%;height:100%;object-fit:cover;min-height:160px;">
+            <img src="assets/images/theme-olympic-games-athens-helsinki.jpg" alt="Olympic stamps" style="width:100%;height:100%;object-fit:cover;min-height:160px;">
             <div style="position:absolute;bottom:0;left:0;right:0;padding:16px;background:linear-gradient(transparent,rgba(0,0,0,0.8));">
               <h4 style="color:#fff;font-size:0.9rem;">Olympic Editions</h4>
             </div>
@@ -396,6 +431,143 @@
     </div>
   </section>
 
+  <!-- ==================== NEW SECTION 1: CURATORS' PRIVATE TREATY VITRINE ==================== -->
+  <section class="section section-alt private-treaty-section" id="privateTreatySection">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-label"><i class="fa-solid fa-lock"></i> Confidential Salon</span>
+        <h2>Curators' Private <span class="highlight">Treaty Vitrine</span></h2>
+        <p>Discreet high-value consignments and sovereign estate acquisitions offered strictly by private negotiation, confidential escrow, and white-glove custody.</p>
+      </div>
+
+      <div class="treaty-grid fade-in">
+        <!-- Treaty Item 1 -->
+        <div class="treaty-card">
+          <div class="treaty-media">
+            <img src="assets/images/product-us-columbian-five-dollar.jpg" alt="1893 Columbian Exposition 5 dollar specimen" loading="lazy">
+            <span class="treaty-badge-gold"><i class="fa-solid fa-shield"></i> PSE Grade 98</span>
+          </div>
+          <div class="treaty-content">
+            <div class="treaty-meta">United States &bull; Classical Gem</div>
+            <h3 class="treaty-title">1893 Columbian Exposition $5</h3>
+            <p class="treaty-provenance">Ex-Josiah Lilly &amp; Sir Maxwell Hastings Holdings. Mint Original Gum with pristine margins.</p>
+            <div class="treaty-specs">
+              <div class="treaty-spec-row">
+                <span>Certification:</span>
+                <strong>PF Cert #549,218</strong>
+              </div>
+              <div class="treaty-spec-row">
+                <span>Centering:</span>
+                <strong>Superb 98 / Jumbo</strong>
+              </div>
+            </div>
+            <div class="treaty-footer">
+              <div class="treaty-price">
+                <span class="price-label">Private Treaty Guide</span>
+                <span class="price-val">£85,000</span>
+              </div>
+              <a href="contact.html?inquiry=1893-columbian-5" class="btn btn-primary btn-sm treaty-btn">
+                <i class="fa-solid fa-envelope-open-text"></i>
+                <span>Inquire</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Treaty Item 2 -->
+        <div class="treaty-card">
+          <div class="treaty-media treaty-media-badge">
+            <div class="treaty-plaque">
+              <i class="fa-solid fa-crown"></i>
+              <h4>1840 Penny Black</h4>
+              <span>Plate 11 Sheet Margin</span>
+              <div class="plaque-postmark">RPSL #104,821</div>
+            </div>
+            <span class="treaty-badge-gold"><i class="fa-solid fa-award"></i> Apex R10</span>
+          </div>
+          <div class="treaty-content">
+            <div class="treaty-meta">Great Britain &bull; Victorian Apex</div>
+            <h3 class="treaty-title">1840 1d Black Plate 11 Margin</h3>
+            <p class="treaty-provenance">The Earl of Crawford Collection. Enormous intact corner sheet margin with deep black ink impression.</p>
+            <div class="treaty-specs">
+              <div class="treaty-spec-row">
+                <span>Certification:</span>
+                <strong>RPSL Certificate</strong>
+              </div>
+              <div class="treaty-spec-row">
+                <span>Margin State:</span>
+                <strong>4 Enormous / Corner Selvage</strong>
+              </div>
+            </div>
+            <div class="treaty-footer">
+              <div class="treaty-price">
+                <span class="price-label">Private Treaty Guide</span>
+                <span class="price-val">£44,000</span>
+              </div>
+              <a href="contact.html?inquiry=1840-penny-black-plate11" class="btn btn-primary btn-sm treaty-btn">
+                <i class="fa-solid fa-envelope-open-text"></i>
+                <span>Inquire</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Treaty Item 3 -->
+        <div class="treaty-card">
+          <div class="treaty-media treaty-media-badge">
+            <div class="treaty-plaque">
+              <i class="fa-solid fa-map-location-dot"></i>
+              <h4>1913 Kangaroo &amp; Map</h4>
+              <span>10s Deep Aniline Pink</span>
+              <div class="plaque-postmark">RPSV Gold Cert</div>
+            </div>
+            <span class="treaty-badge-gold"><i class="fa-solid fa-gem"></i> Mint O.G.</span>
+          </div>
+          <div class="treaty-content">
+            <div class="treaty-meta">Commonwealth &bull; Australia High Value</div>
+            <h3 class="treaty-title">1913 10-Shilling First Watermark</h3>
+            <p class="treaty-provenance">Deaccessioned from a sovereign institutional trust. Flawless gum condition with pristine perfs.</p>
+            <div class="treaty-specs">
+              <div class="treaty-spec-row">
+                <span>Certification:</span>
+                <strong>RPSV Gold Seal</strong>
+              </div>
+              <div class="treaty-spec-row">
+                <span>Condition:</span>
+                <strong>Post Office Fresh Mint O.G.</strong>
+              </div>
+            </div>
+            <div class="treaty-footer">
+              <div class="treaty-price">
+                <span class="price-label">Private Treaty Guide</span>
+                <span class="price-val">£29,500</span>
+              </div>
+              <a href="contact.html?inquiry=1913-kangaroo-10s" class="btn btn-primary btn-sm treaty-btn">
+                <i class="fa-solid fa-envelope-open-text"></i>
+                <span>Inquire</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Treaty Trust Bar -->
+      <div class="treaty-trust-bar fade-in">
+        <div class="treaty-trust-item">
+          <i class="fa-solid fa-user-secret"></i>
+          <span>Strict Client Non-Disclosure (NDA) Protocol</span>
+        </div>
+        <div class="treaty-trust-item">
+          <i class="fa-solid fa-scale-balanced"></i>
+          <span>Third-Party Bank Escrow Settlement (Geneva / London)</span>
+        </div>
+        <div class="treaty-trust-item">
+          <i class="fa-solid fa-plane-lock"></i>
+          <span>Hand-Couriers with Biometric Armored Transit</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ==================== WHITE GLOVE SERVICES (Alternating) ==================== -->
   <section class="section">
@@ -420,9 +592,9 @@
       </div>
 
       <!-- Service 2 (reversed) -->
-      <div class="section-split fade-in" style="flex-direction:row-reverse;margin-bottom:80px;">
+      <div class="section-split split-reverse fade-in" style="margin-bottom:80px;">
         <div class="split-image">
-          <img src="assets/images/stamp-microscopic-grading.jpg" alt="Stamp grading process" loading="lazy">
+          <img src="assets/images/service-spectral-spectrometry-analysis.jpg" alt="Stamp grading and forensic valuation process" loading="lazy">
         </div>
         <div class="split-content">
           <span class="section-label">02</span>
@@ -501,7 +673,7 @@
         </div>
 
         <div class="theme-card" onclick="location.href='products.html?theme=space-aviation'">
-          <img src="assets/images/theme-space-aviation.jpg" alt="Space &amp; Aviation stamps" class="theme-card-img" loading="lazy">
+          <img src="assets/images/theme-space-race-apollo-sputnik.jpg" alt="Space &amp; Aviation stamps" class="theme-card-img" loading="lazy">
           <div class="theme-card-overlay">
             <div class="theme-card-content">
               <h4 class="theme-card-title">Space &amp; Aviation</h4>
@@ -546,8 +718,13 @@
       <div class="fade-in" style="max-width:720px;margin:0 auto 48px;text-align:center;background:var(--card-bg);border:1px solid var(--border-color);border-radius:var(--border-radius-lg);padding:48px 40px;">
         <div style="font-family:var(--font-heading);font-size:4rem;color:var(--secondary);line-height:1;margin-bottom:16px;">"</div>
         <p style="font-size:1.15rem;font-style:italic;color:var(--text-secondary);line-height:1.8;margin-bottom:24px;">PhilaVault transformed my understanding of stamp collecting as an investment. Their private viewing of the British Guiana collection was a once-in-a-lifetime experience. The expertise and discretion of their team is truly unmatched in the industry.</p>
-        <p style="font-weight:500;color:var(--text-primary);font-size:1.05rem;">Lord William Ashford</p>
-        <p style="font-size:0.85rem;color:var(--text-muted);">Private Collector & Patron Member, London</p>
+        <div class="testimonial-author-wrap" style="justify-content:center;">
+          <img src="assets/images/avatar-lord-ashford.jpg" alt="Lord William Ashford" class="testimonial-avatar avatar-lg" width="64" height="64">
+          <div class="testimonial-author-info">
+            <p class="author" style="font-size:1.05rem;">Lord William Ashford</p>
+            <p class="role">Private Collector &amp; Patron Member, London</p>
+          </div>
+        </div>
       </div>
       <div class="grid-3 fade-in">
         <div class="testimonial-card">
@@ -559,8 +736,13 @@
             <i class="fa-solid fa-star"></i>
           </div>
           <p class="quote">"The estate valuation service was invaluable. Professional, thorough, and compassionate during a difficult time."</p>
-          <p class="author">Catherine Reynolds</p>
-          <p class="role">Estate Executor, Edinburgh</p>
+          <div class="testimonial-author-wrap">
+            <img src="assets/images/avatar-catherine-reynolds.jpg" alt="Catherine Reynolds" class="testimonial-avatar" width="54" height="54">
+            <div class="testimonial-author-info">
+              <p class="author">Catherine Reynolds</p>
+              <p class="role">Estate Executor, Edinburgh</p>
+            </div>
+          </div>
         </div>
         <div class="testimonial-card">
           <div class="stars">
@@ -571,8 +753,13 @@
             <i class="fa-solid fa-star"></i>
           </div>
           <p class="quote">"As an investor, PhilaVault's market analysis and acquisition advisory has been exceptional. My collection has appreciated 40% in three years."</p>
-          <p class="author">Takashi Nakamura</p>
-          <p class="role">Investment Collector, Tokyo</p>
+          <div class="testimonial-author-wrap">
+            <img src="assets/images/avatar-takashi-nakamura.jpg" alt="Takashi Nakamura" class="testimonial-avatar" width="54" height="54">
+            <div class="testimonial-author-info">
+              <p class="author">Takashi Nakamura</p>
+              <p class="role">Investment Collector, Tokyo</p>
+            </div>
+          </div>
         </div>
         <div class="testimonial-card">
           <div class="stars">
@@ -583,8 +770,13 @@
             <i class="fa-solid fa-star"></i>
           </div>
           <p class="quote">"The Connoisseur membership is worth every penny. Priority access to new arrivals means I never miss the pieces I'm after."</p>
-          <p class="author">François Dupont</p>
-          <p class="role">Connoisseur Member, Paris</p>
+          <div class="testimonial-author-wrap">
+            <img src="assets/images/avatar-francois-dupont.jpg" alt="François Dupont" class="testimonial-avatar" width="54" height="54">
+            <div class="testimonial-author-info">
+              <p class="author">François Dupont</p>
+              <p class="role">Connoisseur Member, Paris</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -605,10 +797,10 @@
           <div class="plan-price">$29 <span>/month</span></div>
           <div class="plan-billing">Billed annually</div>
           <ul class="plan-features">
-            <li><i class="fa-solid fa-check" style="color:var(--primary);margin-right:8px;"></i> 10 appraisals per year</li>
-            <li><i class="fa-solid fa-check" style="color:var(--primary);margin-right:8px;"></i> Basic catalogue access</li>
-            <li><i class="fa-solid fa-check" style="color:var(--primary);margin-right:8px;"></i> Weekly newsletter</li>
-            <li><i class="fa-solid fa-check" style="color:var(--primary);margin-right:8px;"></i> 5% store discount</li>
+            <li><i class="fa-solid fa-check"></i> 10 appraisals per year</li>
+            <li><i class="fa-solid fa-check"></i> Basic catalogue access</li>
+            <li><i class="fa-solid fa-check"></i> Weekly newsletter</li>
+            <li><i class="fa-solid fa-check"></i> 5% store discount</li>
           </ul>
           <a href="pricing.html" class="btn btn-secondary">Choose Plan</a>
         </div>
@@ -619,10 +811,10 @@
           <div class="plan-price">$79 <span>/month</span></div>
           <div class="plan-billing">Billed annually</div>
           <ul class="plan-features">
-            <li><i class="fa-solid fa-check" style="color:var(--primary);margin-right:8px;"></i> Unlimited appraisals</li>
-            <li><i class="fa-solid fa-check" style="color:var(--primary);margin-right:8px;"></i> Full catalogue access</li>
-            <li><i class="fa-solid fa-check" style="color:var(--primary);margin-right:8px;"></i> Priority shipping</li>
-            <li><i class="fa-solid fa-check" style="color:var(--primary);margin-right:8px;"></i> 15% store discount</li>
+            <li><i class="fa-solid fa-check"></i> Unlimited appraisals</li>
+            <li><i class="fa-solid fa-check"></i> Full catalogue access</li>
+            <li><i class="fa-solid fa-check"></i> Priority shipping</li>
+            <li><i class="fa-solid fa-check"></i> 15% store discount</li>
           </ul>
           <a href="pricing.html" class="btn btn-primary">Choose Plan</a>
         </div>
@@ -632,10 +824,10 @@
           <div class="plan-price">$199 <span>/month</span></div>
           <div class="plan-billing">Billed annually</div>
           <ul class="plan-features">
-            <li><i class="fa-solid fa-check" style="color:var(--primary);margin-right:8px;"></i> Everything in Connoisseur</li>
-            <li><i class="fa-solid fa-check" style="color:var(--primary);margin-right:8px;"></i> Private viewings</li>
-            <li><i class="fa-solid fa-check" style="color:var(--primary);margin-right:8px;"></i> Dedicated advisor</li>
-            <li><i class="fa-solid fa-check" style="color:var(--primary);margin-right:8px;"></i> 25% store discount</li>
+            <li><i class="fa-solid fa-check"></i> Everything in Connoisseur</li>
+            <li><i class="fa-solid fa-check"></i> Private viewings</li>
+            <li><i class="fa-solid fa-check"></i> Dedicated advisor</li>
+            <li><i class="fa-solid fa-check"></i> 25% store discount</li>
           </ul>
           <a href="pricing.html" class="btn btn-secondary">Choose Plan</a>
         </div>
@@ -654,7 +846,7 @@
       <div class="grid-3 fade-in">
         <div class="card">
           <div class="card-img" style="height:200px;overflow:hidden;">
-            <img src="assets/images/event-london-expo.jpg" alt="London Philatelic Exhibition" style="width:100%;height:100%;object-fit:cover;">
+            <img src="assets/images/event-international-stamp-expo.jpg" alt="London Philatelic Exhibition" style="width:100%;height:100%;object-fit:cover;">
           </div>
           <div class="card-body" style="display:flex;gap:16px;align-items:flex-start;">
             <div class="event-date-badge">
@@ -686,7 +878,7 @@
         </div>
         <div class="card">
           <div class="card-img" style="height:200px;overflow:hidden;">
-            <img src="assets/images/event-masterclass.jpg" alt="Philately masterclass" style="width:100%;height:100%;object-fit:cover;">
+            <img src="assets/images/event-curator-masterclass-workshop.jpg" alt="Philately masterclass" style="width:100%;height:100%;object-fit:cover;">
           </div>
           <div class="card-body" style="display:flex;gap:16px;align-items:flex-start;">
             <div class="event-date-badge">
@@ -702,82 +894,114 @@
         </div>
       </div>
 
-      <!-- ==================== UPCOMING EVENTS & SALON CTA VITRINE ==================== -->
-      <div class="events-grand-cta fade-in">
-        <div class="events-grand-backdrop" aria-hidden="true"></div>
 
-        <div class="events-grand-grid">
-          <!-- Left Column: Editorial & VIP Actions -->
-          <div class="events-grand-editorial">
-            <div class="events-grand-pill">
-              <i class="fa-solid fa-crown"></i>
-              <span>VIP Access &bull; 2027 Season Itinerary</span>
+
+    </div>
+  </section>
+
+  <!-- ==================== PHILATELIC COMMUNITY & GAZETTE SHOWCASE ==================== -->
+  <section class="philatelic-community-section" id="communitySection" aria-label="Join PhilaVault Philatelic Community">
+    <div class="container">
+      <div class="community-vitrine-card fade-in">
+        <div class="community-backdrop" aria-hidden="true"></div>
+
+        <div class="community-grid">
+          <!-- Left Column: Editorial & Subscription -->
+          <div class="community-editorial">
+            <div class="community-pill">
+              <i class="fa-solid fa-feather-pointed"></i>
+              <span>The Philatelic Gazette &bull; Weekly Dispatch</span>
             </div>
 
-            <h2 class="events-grand-title">
-              Join the World's Foremost <span class="highlight">Philatelic Gatherings</span>
+            <h2 class="community-title">
+              Connect with <span class="highlight">Fellow Philatelists</span> Worldwide
             </h2>
 
-            <p class="events-grand-desc">
-              From private salon viewings at our London showroom to international premier auction floors in Geneva and Tokyo, PhilaVault offers members reserved floor access, advance catalogue previews, and one-on-one curatorial consultations.
+            <p class="community-description">
+              Join an exclusive global guild of 15,000+ collectors, curators, and postal historians. Receive our acclaimed Thursday Gazette featuring auction price realizations, private vault arrivals, forgery advisories, and scholarly specimen monographs.
             </p>
 
-            <!-- 3 Value Highlights -->
-            <div class="events-grand-perks">
-              <div class="events-grand-perk">
-                <i class="fa-solid fa-ticket"></i>
-                <span>Complimentary Entry</span>
+            <!-- Newsletter Subscription Form -->
+            <form class="community-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing to the PhilaVault Gazette!');">
+              <div class="community-input-wrap">
+                <i class="fa-regular fa-envelope community-input-icon"></i>
+                <input type="email" class="community-input" placeholder="Enter your email address..." required aria-label="Email address for gazette">
               </div>
-              <div class="events-grand-perk">
-                <i class="fa-solid fa-champagne-glasses"></i>
-                <span>Private Reception Access</span>
-              </div>
-              <div class="events-grand-perk">
-                <i class="fa-solid fa-shield-halved"></i>
-                <span>Certified Bidding</span>
-              </div>
+              <button type="submit" class="btn btn-primary community-submit-btn">
+                <span>Subscribe Free</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </form>
+
+            <div class="community-guarantee">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span>Archival Privacy Standard &bull; Strictly Zero Spam &bull; Unsubscribe Anytime</span>
             </div>
 
-            <!-- Dual High-Contrast Actions -->
-            <div class="events-grand-actions">
-              <a href="contact.html" class="btn btn-gold">
-                <i class="fa-solid fa-calendar-check"></i>
-                <span>Reserve 2027 Pass</span>
-              </a>
-              <a href="contact.html" class="btn events-vip-btn">
-                <i class="fa-solid fa-envelope-open-text"></i>
-                <span>Request VIP Invitation</span>
-              </a>
+            <!-- Value Highlights Grid -->
+            <div class="community-perks-row">
+              <div class="community-perk-item">
+                <div class="community-perk-icon">
+                  <i class="fa-solid fa-chart-line"></i>
+                </div>
+                <div>
+                  <strong>Market Insights</strong>
+                  <span>Auction index trends</span>
+                </div>
+              </div>
+              <div class="community-perk-item">
+                <div class="community-perk-icon">
+                  <i class="fa-solid fa-stamp"></i>
+                </div>
+                <div>
+                  <strong>Vault Previews</strong>
+                  <span>48h member priority</span>
+                </div>
+              </div>
+              <div class="community-perk-item">
+                <div class="community-perk-icon">
+                  <i class="fa-solid fa-certificate"></i>
+                </div>
+                <div>
+                  <strong>Expert Analysis</strong>
+                  <span>APS &amp; RPSL grading</span>
+                </div>
+              </div>
             </div>
           </div>
 
-          <!-- Right Column: Visual Vitrine Frame -->
-          <div class="events-grand-visual-wrap">
-            <div class="events-grand-frame">
-              <img src="assets/images/home2-salon-gathering.jpg" alt="PhilaVault international grand archival salon" class="events-grand-img" loading="lazy">
-              <div class="events-grand-frame-sheen" aria-hidden="true"></div>
+          <!-- Right Column: Visual Frame with Real Photography & Floating Badges -->
+          <div class="community-visual-wrap">
+            <div class="community-vitrine-frame">
+              <img src="assets/images/stamp-community.jpg" alt="Philatelists and collectors examining rare archival stamps at a London symposium" class="community-img" loading="lazy">
+              <div class="community-frame-sheen" aria-hidden="true"></div>
 
-              <!-- Floating Live Badge Top -->
-              <div class="events-floating-badge top-badge">
-                <div class="events-badge-dot"></div>
-                <span>Geneva &bull; London &bull; Tokyo &bull; New York</span>
+              <!-- Floating Top Gazette Pill -->
+              <div class="community-floating-badge top-badge">
+                <div class="comm-badge-dot"></div>
+                <span>Vol. XXXVIII &bull; Issue No. 192</span>
               </div>
 
-              <!-- Floating Bottom Experience Card -->
-              <div class="events-stat-card">
-                <div class="events-stat-icon">
-                  <i class="fa-solid fa-landmark"></i>
+              <!-- Floating Bottom Members Showcase Card -->
+              <div class="community-experience-card">
+                <div class="comm-avatar-stack">
+                  <div class="comm-avatar"><i class="fa-solid fa-user"></i></div>
+                  <div class="comm-avatar"><i class="fa-solid fa-user-check"></i></div>
+                  <div class="comm-avatar"><i class="fa-solid fa-award"></i></div>
+                  <div class="comm-avatar-count">+15k</div>
                 </div>
-                <div class="events-stat-text">
-                  <strong>Private International Salon Circuit</strong>
-                  <span>Reserved Floor Seats &bull; Curatorial Previews</span>
+                <div class="comm-exp-text">
+                  <span class="comm-exp-title">Global Collector Society</span>
+                  <span class="comm-exp-sub">Active members across 48 nations</span>
+                </div>
+                <div class="comm-exp-seal" title="Certified RPSL Guild">
+                  <i class="fa-solid fa-stamp"></i>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-
     </div>
   </section>
 
