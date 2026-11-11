@@ -9109,7 +9109,7 @@ select.form-control option {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 20px;
+  padding-top: 28px;
   border-top: 1px solid rgba(184, 134, 11, 0.3);
   position: relative;
 }
@@ -9119,6 +9119,9 @@ select.form-control option {
   font-size: 0.72rem;
   color: var(--text-muted);
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .sig-line {
@@ -9188,7 +9191,7 @@ select.form-control option {
 .pin-3 { top: 8px; right: 8px; }
 .pin-4 { top: -10px; left: -14px; }
 .pin-5 { top: -10px; right: -14px; }
-.pin-6 { top: -16px; right: -14px; }
+.pin-6 { top: -28px; right: 0; }
 
 /* Right Feature List */
 .cert-features-list {
@@ -9401,6 +9404,34 @@ select.form-control option {
   }
   .specimen-sub {
     font-size: 0.7rem;
+  }
+  .cert-mockup-footer {
+    padding-top: 26px;
+  }
+  .cert-signatory {
+    font-size: 0.65rem;
+  }
+  .sig-line {
+    width: 82px;
+    margin-bottom: 6px;
+  }
+  .cert-mockup-seal {
+    width: 58px;
+    height: 58px;
+  }
+  .cert-mockup-seal i {
+    font-size: 0.85rem;
+  }
+  .cert-mockup-seal span {
+    font-size: 0.42rem;
+  }
+  .pin-6 {
+    top: -26px;
+    right: 0;
+  }
+  .pin-2 {
+    top: -8px;
+    right: -6px;
   }
 }
 
