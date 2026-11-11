@@ -135,7 +135,6 @@ function injectFooter() {
           <div class="footer-col">
             <h4 class="footer-col-title">Resources</h4>
             <ul class="footer-links">
-              <li><a href="coming-soon.html">Dashboard</a></li>
               <li><a href="coming-soon.html">Coming Soon</a></li>
               <li><a href="404.html">404 Page</a></li>
               <li><a href="login.html">Sign In</a></li>
@@ -311,11 +310,24 @@ function initScrollAnimations() {
       }
     });
   }, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    threshold: 0.01,
+    rootMargin: '100px 0px 100px 0px'
   });
 
-  elements.forEach(el => observer.observe(el));
+  elements.forEach(el => {
+    // If element is already within or near the viewport on load, reveal immediately
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight + 150 && rect.bottom > -150) {
+      el.classList.add('visible');
+    } else {
+      observer.observe(el);
+    }
+  });
+
+  // Fallback safety: ensure all elements become visible after max 1.5s
+  setTimeout(() => {
+    elements.forEach(el => el.classList.add('visible'));
+  }, 1500);
 }
 
 // ---- FAQ Accordion ----
